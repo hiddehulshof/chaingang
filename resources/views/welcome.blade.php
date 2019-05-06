@@ -7,7 +7,6 @@
             </div>
         </div>
 
-        <div class="">test</div>
     </div>
 @endsection
 <b></b>
