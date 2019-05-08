@@ -5,4 +5,5 @@
 <title>Album example for Bootstrap</title>
 <!-- Bootstrap core CSS -->
 <link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/header.css">
 <!-- Custom styles for this template -->
