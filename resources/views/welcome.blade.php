@@ -1,7 +1,7 @@
 @extends('layouts.mainlayout')
 @section('content')
 
-    @include('layouts.partials.contentblock')
+    @include('layouts.partials.article')
 
 @endsection
 <b></b>
