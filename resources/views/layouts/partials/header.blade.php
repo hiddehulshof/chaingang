@@ -1,7 +1,8 @@
-<section class="jumbotron text-center">
-    <div class="container">
-        <h1 class="jumbotron-heading">Header</h1>
-        <p class="lead text-muted"> Fietsen webshop header</p>
+<section class="header text-center row">
 
-    </div>
+        <div  class="col align-self-center align-middle">
+            <h1>Header</h1>
+            <p class=""> Fietsen webshop header</p>
+        </div>
+
 </section>

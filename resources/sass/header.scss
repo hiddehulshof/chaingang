@@ -1,19 +1,33 @@
 .navigation {
-    position: fixed;
-    width: 100%;
-    background-color: transparent;
+  position: fixed;
+  width: 100%;
+  background-color: transparent;
 
-    &__wrapper {
-        padding: 10px 0;
-        display: flex;
-        justify-content: flex-end;
+  &__wrapper {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
 
-        &-link {
-            font-size: 18px;
-            color: white;
-            font-weight: 900;
-            text-transform: uppercase;
-            padding: 0 5px;
-        }
+    &-link {
+      font-size: 18px;
+      color: white;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 0 15px;
     }
+    &-logo {
+      font-size: 18px;
+      color: white;
+      font-weight: 900;
+      text-transform: uppercase;
+      padding: 0 15px;
+    }
+  }
+
+}
+
+.header {
+  background-color: #1b1e21;
+  color: white;
+  height: 70vh;
 }

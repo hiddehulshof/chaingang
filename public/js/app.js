@@ -49440,9 +49440,9 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\sass\app.scss */"./resources/sass/app.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\sass\header.scss */"./resources/sass/header.scss");
+__webpack_require__(/*! C:\laragon\www\chaingang\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\laragon\www\chaingang\resources\sass\app.scss */"./resources/sass/app.scss");
+module.exports = __webpack_require__(/*! C:\laragon\www\chaingang\resources\sass\header.scss */"./resources/sass/header.scss");
 
 
 /***/ })
