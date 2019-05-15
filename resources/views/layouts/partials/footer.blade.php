@@ -1,43 +1,57 @@
-<footer class="text-muted bg-dark h-25 mt-5">
+<footer class="text-muted bg-dark mt-5">
     <div class="container">
-        <div class="row">
+        <div class="row footercontent">
             <div class="col-md-4">
                 <ul>
                     <li>
-                        <p>test</p>
+                        <h5>Menu</h5>
                     </li>
                     <li>
-                        <p>test</p>
+                        Home
                     </li>
                     <li>
-                        <p>test</p>
+                        Producten
+                    </li>
+                    <li>
+                        Contact
+                    </li>
+                    <li>
+                        Inloggen
                     </li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <ul>
                     <li>
-                        <p>test</p>
+                        <h5>Merken</h5>
                     </li>
                     <li>
-                        <p>test</p>
+                        Gazelle
                     </li>
                     <li>
-                        <p>test</p>
+                        Batavius
                     </li>
-
+                    <li>
+                        Stella
+                    </li>
+                    <li>
+                        Sprint
+                    </li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <ul>
                     <li>
-                        <p>test</p>
+                        <h5>Contact</h5>
                     </li>
                     <li>
-                        <p>test</p>
+                        JF-Kennedylaan 108 Doetinchem
                     </li>
                     <li>
-                        <p>test</p>
+                        +3150289880
+                    </li>
+                    <li>
+                        contact@chaingang.nl
                     </li>
                 </ul>
             </div>
