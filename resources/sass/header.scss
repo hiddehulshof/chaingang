@@ -1,52 +1,80 @@
+body {
+    overflow-x: hidden;
+}
+
 .navigation {
-  position: fixed;
-  width: 100%;
-  background-color: transparent;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    background-color: transparent;
+    transition: .3s ease;
 
-  &__wrapper {
-    padding: 20px 0;
-    display: flex;
-    justify-content: space-between;
+    &.header--white {
+        background: white;
 
-    &-link {
-      font-size: 18px;
-      color: white;
-      font-weight: 700;
-      text-transform: uppercase;
-      padding: 0 15px;
-      &:hover {
-        text-decoration: none;
-        color: white;
-      }
+        .navigation__wrapper-link, .navigation__wrapper-logo {
+            color: black;
+        }
     }
 
-    &-logo {
-      font-size: 18px;
-      color: white;
-      font-weight: 700;
-      text-transform: uppercase;
-      padding: 0 15px;
+    &__wrapper {
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+
+        &-link {
+            font-size: 18px;
+            color: white;
+            padding: 0 15px;
+            transition: .3s ease;
+
+            &:hover {
+                text-decoration: none;
+                color: white;
+            }
+        }
+
+        &-logo {
+            font-size: 18px;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 0 15px;
+            transition: .3s ease;
+        }
     }
-  }
 
 }
 
 .header {
-  background-image: url("../images/headermain.jpg");
-  background-size: cover;
-  position: relative;
-  color: white;
-  height: 70vh;
-  z-index: -1;
+    background-image: url("../images/headermain.jpg");
+    background-size: cover;
+    position: relative;
+    color: white;
+    height: 100vh;
+    z-index: 0;
 
-  &:after {
-    z-index: -2;
-    content: '';
-    position: absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    background: rgba(0, 0, 0, 0.4);
-  }
+    &:after {
+        z-index: -2;
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.4);
+    }
+    
+    .scroll-icon {
+        background-image: url('../images/scrollArrow.png');
+        -webkit-background-size: cover;
+        background-size: cover;
+        width: 65px;
+        height: 65px;
+        position: absolute;
+        left: 50%;
+        bottom: 50px;
+        transform: translateX(-50%);
+        cursor: pointer;
+    }
 }

@@ -31,3 +31,18 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app',
 });
+
+$(window).scroll(function() {
+    var scroll = $(window).scrollTop();
+    if (scroll <= 50) {
+        $(".navigation").removeClass("header--white");
+    } else {
+        $('.navigation').addClass('header--white');
+    }
+});
+
+$(document).on("click", ".scroll-icon", function() {
+    $('html, body').animate({
+        scrollTop: $(".article").offset().top - 68
+    }, 500);
+});

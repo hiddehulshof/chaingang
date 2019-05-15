@@ -5,4 +5,6 @@
             <p class=""> Fietsen webshop header</p>
         </div>
 
+        <div class="scroll-icon"></div>
+
 </section>
