@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="/css/header.css">
 <link rel="stylesheet" href="/css/footer.css">
+<link rel="stylesheet" href="/css/newsletter.css">
 
 <link rel="stylesheet" href="/css/article.css">
 <!-- Custom styles for this template -->
