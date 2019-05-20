@@ -12,6 +12,7 @@ body {
 
 .navigation.header--white {
   background: white;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .navigation.header--white .navigation__wrapper-link,
@@ -46,17 +47,25 @@ body {
   transition: 0.3s ease;
 }
 
+.navigation__wrapper-logo:hover {
+  color: white;
+  text-decoration: none;
+}
+
 .header {
   background-image: url(/images/headermain.jpg?5a34b6271a676ccf26cfe9ba9e50440b);
   background-size: cover;
   position: relative;
   color: white;
   height: 100vh;
-  z-index: -1;
+}
+
+.header div {
+  z-index: 1;
 }
 
 .header:after {
-  z-index: -2;
+  z-index: 0 !important;
   content: "";
   position: absolute;
   top: 0;
@@ -81,16 +90,5 @@ body {
 
 .header.content {
   height: 30vh !important;
-}
-
-.header:after {
-  z-index: -2;
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.4);
 }
 

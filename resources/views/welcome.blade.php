@@ -1,6 +1,6 @@
 @extends('layouts.mainlayout')
 @section('headercontent')
-    <h1>headerrrrr</h1>
+    <h1>Tweedehands fietsen</h1>
 @endsection
 
 @section('content')

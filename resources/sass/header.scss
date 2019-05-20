@@ -11,6 +11,7 @@ body {
 
     &.header--white {
         background: white;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
 
         .navigation__wrapper-link, .navigation__wrapper-logo {
             color: black;
@@ -41,6 +42,11 @@ body {
             text-transform: uppercase;
             padding: 0 15px;
             transition: .3s ease;
+
+            &:hover {
+                color: white;
+                text-decoration: none;
+            }
         }
     }
 
@@ -52,10 +58,13 @@ body {
     position: relative;
     color: white;
     height: 100vh;
-    z-index: -1;
+
+    div {
+        z-index: 1;
+    }
 
     &:after {
-        z-index: -2;
+        z-index: 0 !important;
         content: '';
         position: absolute;
         top: 0;
@@ -64,7 +73,7 @@ body {
         left: 0;
         background: rgba(0, 0, 0, 0.4);
     }
-    
+
     .scroll-icon {
         background-image: url('../images/scrollArrow.png');
         -webkit-background-size: cover;
@@ -78,20 +87,7 @@ body {
         cursor: pointer;
     }
 
-
-
-  &.content{
-    height: 30vh!important;
-  }
-
-  &:after {
-    z-index: -2;
-    content: '';
-    position: absolute;
-    top:0;
-    right:0;
-    bottom:0;
-    left:0;
-    background: rgba(0, 0, 0, 0.4);
-  }
+    &.content {
+        height: 30vh !important;
+    }
 }
