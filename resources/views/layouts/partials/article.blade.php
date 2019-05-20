@@ -6,7 +6,7 @@
                 </p>
             </div>
             <div class="col-md-6">
-                <img src="{{ URL::asset('/images/about-us.png') }}" alt="">
+                <img src="{{ asset('storage/app/public/images/about-us.jpg') }}" alt="">
             </div>
         </div>
     </div>
