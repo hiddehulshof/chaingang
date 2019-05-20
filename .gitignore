@@ -4,7 +4,7 @@
 /storage/*.key
 /vendor
 .env
-.idea
+.idea/*
 .phpunit.result.cache
 Homestead.json
 Homestead.yaml
@@ -12,3 +12,5 @@ npm-debug.log
 yarn-error.log
 .idea/workspace.xml
 git
+public/css/*
+public/js/*

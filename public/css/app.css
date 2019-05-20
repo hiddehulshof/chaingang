@@ -12999,3 +12999,24 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
+.button {
+  background-color: #7089eb;
+  padding: 10px;
+  border: none;
+  color: #ffffff;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin: 5px 0;
+  transition: background-color 1s;
+}
+
+.button:hover {
+  background-color: #5151a0;
+}
+
+.textbox {
+  margin: 5px 0;
+  padding: 5px;
+}
+

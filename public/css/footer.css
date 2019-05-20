@@ -1,0 +1,19 @@
+footer ul {
+  list-style: none;
+  color: white;
+}
+
+footer .footercontent {
+  padding: 40px;
+}
+
+@media (min-width: 801px) {
+  footer .footercontent {
+    padding: 80px;
+  }
+}
+
+footer li {
+  padding-bottom: 10px;
+}
+
