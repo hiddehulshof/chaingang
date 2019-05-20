@@ -27,7 +27,7 @@
             <td>test</td>
             <td>
                 <div class="buttons">
-                     <button class="button"> <i class="fa fa-edit"></i> </button><button class="button__delete"><i class="fa fa-trash"></i></button>
+                     <button class="button"> <i class="fa fa-edit"></i> </button><button class="button button__delete"><i class="fa fa-trash"></i></button>
                 </div>
             </td>
         </tr>
@@ -38,7 +38,7 @@
             <td>test</td>
             <td>
                 <div class="buttons">
-                    <button class="button"> <i class="fa fa-edit"></i> </button><button class="button__delete"><i class="fa fa-trash"></i></button>
+                    <button class="button"> <i class="fa fa-edit"></i> </button><button class="button button__delete"><i class="fa fa-trash"></i></button>
                 </div>
             </td>
         </tr>
@@ -51,7 +51,7 @@
             <td>test</td>
             <td>
                 <div class="buttons">
-                    <button class="button"> <i class="fa fa-edit"></i> </button><button class="button__delete"><i class="fa fa-trash"></i></button>
+                    <button class="button"> <i class="fa fa-edit"></i> </button><button class="button button__delete"><i class="fa fa-trash"></i></button>
                 </div>
             </td>
         </tr>

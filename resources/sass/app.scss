@@ -26,6 +26,10 @@ body{
   margin: 5px 0;
 
   transition: background-color 1s;
+
+    &__delete {
+        background-color: #ff2e21;
+    }
 }
 
 .button:hover{
@@ -36,14 +40,5 @@ body{
   margin: 5px 0;
   padding: 5px;
 
-  &__delete {
-    background-color: #ff2e21;
-    border: none;
-    padding: 10px;
-    color: #ffffff;
-    font-size: 20px;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin: 5px 0;
-  }
+
 }
