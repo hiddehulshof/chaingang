@@ -14,12 +14,8 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css')
     .sass('resources/sass/header.scss', 'public/css')
-<<<<<<< HEAD
-
     .sass('resources/sass/newsletter.scss', 'public/css')
-=======
     .sass('resources/sass/footer.scss', 'public/css')
     .sass('resources/sass/admin.scss', 'public/css')
->>>>>>> beheer
     .sass('resources/sass/article.scss', 'public/css');
 

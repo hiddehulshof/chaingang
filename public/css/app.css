@@ -13001,19 +13001,13 @@ body {
 
 .button {
   background-color: #7089eb;
-<<<<<<< HEAD
-  padding: 10px;
-  border: none;
-=======
   border: none;
   padding: 10px;
->>>>>>> beheer
   color: #ffffff;
   font-size: 20px;
   text-transform: uppercase;
   font-weight: 500;
   margin: 5px 0;
-<<<<<<< HEAD
   transition: background-color 1s;
 }
 
@@ -13024,10 +13018,9 @@ body {
 .textbox {
   margin: 5px 0;
   padding: 5px;
-=======
 }
 
-.button__delete {
+.textbox__delete {
   background-color: #ff2e21;
   border: none;
   padding: 10px;
@@ -13036,6 +13029,5 @@ body {
   text-transform: uppercase;
   font-weight: 500;
   margin: 5px 0;
->>>>>>> beheer
 }
 
