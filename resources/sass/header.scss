@@ -52,7 +52,7 @@ body {
     position: relative;
     color: white;
     height: 100vh;
-    z-index: 0;
+    z-index: -1;
 
     &:after {
         z-index: -2;
@@ -77,4 +77,21 @@ body {
         transform: translateX(-50%);
         cursor: pointer;
     }
+
+
+
+  &.content{
+    height: 30vh!important;
+  }
+
+  &:after {
+    z-index: -2;
+    content: '';
+    position: absolute;
+    top:0;
+    right:0;
+    bottom:0;
+    left:0;
+    background: rgba(0, 0, 0, 0.4);
+  }
 }
