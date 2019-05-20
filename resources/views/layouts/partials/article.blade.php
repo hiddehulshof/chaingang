@@ -1,4 +1,5 @@
-    <div class="article container">
+<div class="article">
+    <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <h2 class="article__heading">Over ons</h2>
@@ -11,3 +12,4 @@
             </div>
         </div>
     </div>
+</div>

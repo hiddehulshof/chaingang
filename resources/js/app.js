@@ -44,5 +44,5 @@ $(window).scroll(function() {
 $(document).on("click", ".scroll-icon", function() {
     $('html, body').animate({
         scrollTop: $(".article").offset().top - 68
-    }, 2500);
+    }, 1200);
 });
