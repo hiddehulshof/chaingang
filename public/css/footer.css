@@ -4,12 +4,20 @@ footer ul {
 }
 
 footer .footercontent {
+<<<<<<< HEAD
   padding: 40px;
+=======
+  padding: 40px 0;
+>>>>>>> beheer
 }
 
 @media (min-width: 801px) {
   footer .footercontent {
+<<<<<<< HEAD
     padding: 80px;
+=======
+    padding: 80px 0;
+>>>>>>> beheer
   }
 }
 

@@ -3,5 +3,7 @@
     "/css/app.css": "/css/app.css",
     "/css/header.css": "/css/header.css",
     "/css/newsletter.css": "/css/newsletter.css",
+    "/css/footer.css": "/css/footer.css",
+    "/css/admin.css": "/css/admin.css",
     "/css/article.css": "/css/article.css"
 }

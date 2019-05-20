@@ -52,7 +52,15 @@ body {
   position: relative;
   color: white;
   height: 100vh;
+<<<<<<< HEAD
   z-index: 0;
+=======
+  z-index: -1;
+>>>>>>> beheer
+}
+
+.header.content {
+  height: 30vh !important;
 }
 
 .header:after {
