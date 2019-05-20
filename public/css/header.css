@@ -36,8 +36,12 @@
   background-size: cover;
   position: relative;
   color: white;
-  height: 70vh;
+  height: 100vh;
   z-index: -1;
+}
+
+.header.content {
+  height: 30vh !important;
 }
 
 .header:after {
