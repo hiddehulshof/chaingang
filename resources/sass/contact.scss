@@ -1,0 +1,11 @@
+.contact {
+  padding: 100px 0;
+
+  &__label{
+    font-weight: bold!important;
+  }
+  &__checkbox{
+    width:16px;
+    height:16px;
+  }
+}

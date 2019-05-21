@@ -17,6 +17,9 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin/admin');
 });
+Route::get('/contact', function () {
+    return view('contact');
+});
 
 Route::get('/products', 'ProductsController@index');
 

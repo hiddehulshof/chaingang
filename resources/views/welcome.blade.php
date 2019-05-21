@@ -9,4 +9,4 @@
     @include('layouts.partials.newsletter')
 
 @endsection
-<b></b>
+

@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="/css/app.css">
 <link rel="stylesheet" href="/css/header.css">
 <link rel="stylesheet" href="/css/footer.css">
-
+<link rel="stylesheet" href="/css/contact.css">
 <link rel="stylesheet" href="/css/newsletter.css">
 
 <link rel="stylesheet" href="/css/admin.css">
