@@ -13,6 +13,17 @@ table {
 }
 
 .buttons button {
-  width: 40px;
+  width: 36px;
+  padding: 10px !important;
+}
+
+.admin-article {
+  padding: 100px 15px;
+  background-color: #F4F4F4;
+}
+
+.admin-article__heading {
+  font-weight: 900;
+  text-transform: uppercase;
 }
 

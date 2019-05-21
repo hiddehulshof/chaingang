@@ -7,8 +7,8 @@
         </div>
         <div class="">
             <a class="navigation__wrapper-link" href="#">Home</a>
-            <a class="navigation__wrapper-link" href="#">Products</a>
-            <a class="navigation__wrapper-link" href="#">About us</a>
+            <a class="navigation__wrapper-link" href="#">Fietsen</a>
+            <a class="navigation__wrapper-link" href="#">Over ons</a>
             <a class="navigation__wrapper-link" href="#">Login</a>
         </div>
     </div>
