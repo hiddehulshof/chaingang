@@ -18,6 +18,10 @@ Route::get('/admin', function () {
     return view('admin/admin');
 });
 
+Route::get('/login', function () {
+    return view('login-page');
+});
+
 Route::get('/products', 'ProductsController@index');
 
 Route::post('/products', 'ProductsController@store');

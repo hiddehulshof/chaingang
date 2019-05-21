@@ -1,4 +1,4 @@
-@extends('layouts.mainlayout')
+@extends('layouts.mainlayout', ['page' => 'other'])
 @section('headercontent')
     <h1>Tweedehands fietsen</h1>
 @endsection
