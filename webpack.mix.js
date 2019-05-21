@@ -17,8 +17,9 @@ mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/newsletter.scss', 'public/css')
     .sass('resources/sass/footer.scss', 'public/css')
     .sass('resources/sass/admin.scss', 'public/css')
-    .sass('resources/sass/article.scss', 'public/css')
-    .sass('resources/sass/contact.scss', 'public/css');
+    .sass('resources/sass/contact.scss', 'public/css')
     .sass('resources/sass/products.scss', 'public/css')
+    .sass('resources/sass/over-ons.scss', 'public/css')
     .sass('resources/sass/article.scss', 'public/css');
+
 

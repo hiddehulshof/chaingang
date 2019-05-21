@@ -24,6 +24,9 @@ Route::get('/contact', function () {
 Route::get('/login', function () {
     return view('login-page');
 });
+Route::get('/over-ons', function () {
+    return view('over-ons');
+});
 
 Route::get('/products', 'ProductsController@index');
 

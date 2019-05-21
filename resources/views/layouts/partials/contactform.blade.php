@@ -48,7 +48,7 @@
                         gegevens *</label>
                 </div>
                 <div class="col-md-12">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Verstuur</button>
                 </div>
             </div>
         </form>
