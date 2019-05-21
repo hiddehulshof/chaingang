@@ -21,6 +21,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::get('/login', function () {
+    return view('login-page');
+});
+
 Route::get('/products', 'ProductsController@index');
 
 Route::post('/products', 'ProductsController@store');

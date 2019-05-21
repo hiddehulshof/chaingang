@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,12 @@
 </head>
 <body>
 @include('layouts.partials.nav')
-@include('layouts.partials.header')
+
+@if($page == 'login')
+@include('layouts.partials.header',['page' => 'login'])
+ @else
+ @include('layouts.partials.header')
+@endif
 @yield('content')
 @include('layouts.partials.footer')
 @include('layouts.partials.footer-scripts')
