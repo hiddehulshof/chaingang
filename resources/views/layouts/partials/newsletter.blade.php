@@ -5,7 +5,7 @@
                 <h2 class="newsletter__heading">Schrijf je in voor onze nieuwsbrief</h2>
                 <form>
                     <input class="textbox newsletter__input" type="email" name="email" placeholder="Email">
-                    <input class="button newsletter__input" type="button" name="submit" value="Inschrijven">
+                    <button type="submit" class="button newsletter__input btn btn-primary">Inschrijven</button>
                 </form>
             </div>
         </div>

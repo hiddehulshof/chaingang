@@ -17,6 +17,16 @@ Route::get('/', function () {
 Route::get('/admin', function () {
     return view('admin/admin');
 });
+Route::get('/contact', function () {
+    return view('contact');
+});
+
+Route::get('/login', function () {
+    return view('login-page');
+});
+Route::get('/over-ons', function () {
+    return view('over-ons');
+});
 
 Route::get('/products', 'ProductsController@index');
 

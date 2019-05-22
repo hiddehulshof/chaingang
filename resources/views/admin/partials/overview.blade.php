@@ -1,4 +1,4 @@
-<div class="article">
+<div class="admin-article">
     <div class="container">
         <div class="row">
             <div class="col-sm">

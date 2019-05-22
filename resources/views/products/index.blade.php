@@ -1,23 +1,10 @@
-@extends('layouts.mainlayout')
+@extends('layouts.contentlayout')
+
+@section('headercontent')
+    <h1>Tweedehands fietsen</h1>
+@endsection
 @section('content')
-    <div class="album text-muted">
-        <div class="container">
-            <h1>Producten</h1>
-            <div class="row">
-                @foreach($products as $product)
-
-                <div class="card" style="width: 18rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ $product->name }}</h5>
-                        <p class="card-text"> {{ $product->description }}</p>
-                        <a href="#" class="btn btn-primary">Bekijk product</a>
-                    </div>
-                </div>
-                    @endforeach
-            </div>
-        </div>
-
-    </div>
+  @include('layouts.partials.products')
 
 @endsection
 <b></b>
