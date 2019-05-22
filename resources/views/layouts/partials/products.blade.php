@@ -112,6 +112,5 @@
             </div>
         </div>
     </div>
-@include("layouts.partials.loginform")
 
 </div>
