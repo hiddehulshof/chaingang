@@ -28,8 +28,6 @@ Route::get('/over-ons', function () {
     return view('over-ons');
 });
 
-Route::get('/products', 'ProductsController@index');
-
-Route::post('/products', 'ProductsController@store');
-
-Route::get('/products/create', 'ProductsController@create');
+Route::get('/products', function () {
+    return view('products/index');
+});
