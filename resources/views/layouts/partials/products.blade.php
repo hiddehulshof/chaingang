@@ -3,7 +3,7 @@
         <h1 class="article__heading">Producten</h1>
 
         <div class="row justify-content-between">
-            <div class="col-md-6">
+            <div class="col-lg-6 col-md-3">
 
                     <ul class="brands">
                         <li>
@@ -21,21 +21,21 @@
                     </ul>
             </div>
 
-            <div class="col-md-2 p-2">
+            <div class="col-lg-2 col-md-3 p-2">
                 <div class="button filter">
                     <i class="fa fa-arrow-down pr-2"></i>
 
                     Heren
                 </div>
             </div>
-            <div class="col-md-2 p-2">
+            <div class="col-lg-2 col-md-3 p-2">
                 <div class="button   filter">
                     <i class="fa fa-arrow-down pr-2"></i>
 
                     Type
                 </div>
             </div>
-            <div class="col-md-2 p-2">
+            <div class="col-lg-2 col-md-3 p-2">
                 <div class="button  filter">
                     <i class="fa fa-arrow-down pr-2"></i>
 

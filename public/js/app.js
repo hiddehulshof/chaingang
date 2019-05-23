@@ -49531,16 +49531,16 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\js\app.js */"./resources/js/app.js");
-__webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\sass\app.scss */"./resources/sass/app.scss");
-__webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\sass\header.scss */"./resources/sass/header.scss");
-__webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\sass\newsletter.scss */"./resources/sass/newsletter.scss");
-__webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\sass\footer.scss */"./resources/sass/footer.scss");
-__webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\sass\admin.scss */"./resources/sass/admin.scss");
-__webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\sass\contact.scss */"./resources/sass/contact.scss");
-__webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\sass\products.scss */"./resources/sass/products.scss");
-__webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\sass\over-ons.scss */"./resources/sass/over-ons.scss");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\chaingang\resources\sass\article.scss */"./resources/sass/article.scss");
+__webpack_require__(/*! C:\laragon\www\chaingang\resources\js\app.js */"./resources/js/app.js");
+__webpack_require__(/*! C:\laragon\www\chaingang\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laragon\www\chaingang\resources\sass\header.scss */"./resources/sass/header.scss");
+__webpack_require__(/*! C:\laragon\www\chaingang\resources\sass\newsletter.scss */"./resources/sass/newsletter.scss");
+__webpack_require__(/*! C:\laragon\www\chaingang\resources\sass\footer.scss */"./resources/sass/footer.scss");
+__webpack_require__(/*! C:\laragon\www\chaingang\resources\sass\admin.scss */"./resources/sass/admin.scss");
+__webpack_require__(/*! C:\laragon\www\chaingang\resources\sass\contact.scss */"./resources/sass/contact.scss");
+__webpack_require__(/*! C:\laragon\www\chaingang\resources\sass\products.scss */"./resources/sass/products.scss");
+__webpack_require__(/*! C:\laragon\www\chaingang\resources\sass\over-ons.scss */"./resources/sass/over-ons.scss");
+module.exports = __webpack_require__(/*! C:\laragon\www\chaingang\resources\sass\article.scss */"./resources/sass/article.scss");
 
 
 /***/ })
