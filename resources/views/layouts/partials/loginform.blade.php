@@ -18,4 +18,4 @@
         </div>
         <p class="text-center"><a href="#"><b>Create an Account</b></a></p>
     </div>
-    </div>
+</div>
