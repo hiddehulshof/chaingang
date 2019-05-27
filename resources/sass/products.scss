@@ -1,41 +1,91 @@
-.products-page
-{
-  a :hover
-  {
-    text-decoration: none;
+.products-page {
+    a :hover {
+        text-decoration: none;
 
-  }
+    }
 }
-.product-image
-{
-  background-image: url("../images/headermain.jpg");
-  background-size: cover;
-  min-height: 100px;
+
+.product-image {
+    background-image: url("../images/headermain.jpg");
+    background-size: cover;
+    min-height: 100px;
 }
-.product-detail-image
-{
-  background-image: url("../images/headermain.jpg");
-  background-size: cover;
-  min-height: 30vh;
+
+.product-detail-image {
+    background-image: url("../images/headermain.jpg");
+    background-size: cover;
+    min-height: 30vh;
 }
 
 
-.product
-{
-  border: 2px solid gray;
+.product {
+    border: 2px solid gray;
 }
-.products
-{
-  padding: 25px 0;
-}
-.brands
-{
-  list-style: none;
-  padding-left: 1rem;
 
+.products {
+    padding: 25px 0;
 }
-.filter{
-  background-color: gray;
-  height: 40px;
-  width: 100%;
+
+.brands {
+    list-style: none;
+    padding-left: 1rem;
+}
+
+.filter {
+    background-color: gray;
+    height: 40px;
+    width: 100%;
+}
+
+.products {
+    &__block {
+        background: white;
+        padding: 100px 0;
+
+        &--heading {
+            margin-bottom: 75px;
+        }
+
+        &--products {
+
+            .single {
+                max-width: 300px;
+            }
+
+            &-photo {
+                background: lightgrey;
+                width: 100%;
+                height: 500px;
+                background-image: url("../images/headermain.jpg");
+                background-size: cover;
+                position: relative;
+
+                &:after {
+                    z-index: 0 !important;
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    background: rgba(0, 0, 0, 0.2);
+                }
+            }
+
+            &--info {
+                margin-top: 20px;
+                &-name {
+                    display: inline;
+                    font-size: 22px;
+                }
+
+                &-price {
+                    float: right;
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: rgb(51, 115, 191);
+                }
+            }
+        }
+    }
 }
