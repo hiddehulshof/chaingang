@@ -34,3 +34,6 @@ Route::get('/products', function () {
 Route::get('/product', function () {
     return view('products/product_details');
 });
+Route::get('/profile', function () {
+    return view('customers/profile');
+});
