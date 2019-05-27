@@ -14,3 +14,13 @@ yarn-error.log
 git
 public/css/*
 public/js/*
+
+public/css/
+
+composer\.lock
+
+public/js/
+
+public/fonts/vendor/font-awesome/
+
+public/
