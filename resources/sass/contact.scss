@@ -9,3 +9,24 @@
     height:16px;
   }
 }
+
+.contactinfo{
+  padding: 100px 15px;
+  &__label{
+    font-weight: bold!important;
+  }
+  &__checkbox{
+    width:16px;
+    height:16px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .contactinfo {
+    padding: 100px 15px 50px 15px;
+  }
+
+  .contact{
+    padding: 50px 15px 100px 15px;
+  }
+}
