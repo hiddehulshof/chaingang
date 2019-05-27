@@ -35,7 +35,7 @@
                     <textarea class="form-control" name="textfield" id="InputQuestion" aria-describedby="question"
                               placeholder="Uw vraag" rows="5" required></textarea>
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-12 mb-3">
                     <small>
                         Als u dit formulier invult, slaan wij uw naam en adresgegevens op.
                         Wij gebruiken deze gegevens alleen om uw vraag of opmerking te beantwoorden.

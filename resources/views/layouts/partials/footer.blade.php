@@ -45,7 +45,7 @@
                         <h5>Contact</h5>
                     </li>
                     <li>
-                        JF-Kennedylaan 108 Doetinchem
+                        JF-Kennedylaan 49 Doetinchem
                     </li>
                     <li>
                         +3150289880
