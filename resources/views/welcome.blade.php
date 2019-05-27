@@ -6,6 +6,8 @@
 @section('content')
 
     @include('layouts.partials.article')
+    @include('layouts.partials.products-block')
+    @include('layouts.partials.reviews')
     @include('layouts.partials.newsletter')
 
 @endsection

@@ -9,7 +9,7 @@
             </div>
 
             <div class="col-md-6">
-                <img src="{{ asset('storage/app/public/images/about-us.jpg') }}" alt="">
+               <div class="article__photo"></div>
             </div>
         </div>
     </div>
