@@ -13,7 +13,7 @@ class FietsFoto extends Migration
      */
     public function up()
     {
-        Schema::create('Fietsen', function (Blueprint $table) {
+        Schema::create('FietsFoto', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger("FietsID");
             $table->string("Filename", 255);
@@ -29,6 +29,6 @@ class FietsFoto extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Fietsen');
+        Schema::dropIfExists('FietsFoto');
     }
 }

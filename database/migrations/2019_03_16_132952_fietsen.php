@@ -13,7 +13,7 @@ class Fietsen extends Migration
      */
     public function up()
     {
-        Schema::create('FietsFotos', function (Blueprint $table) {
+        Schema::create('Fietsen', function (Blueprint $table) {
             $table->increments('id');
             $table->decimal('prijs');
             $table->decimal('aanbiedingsprijs');
@@ -41,6 +41,6 @@ class Fietsen extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('FietsFotos');
+        Schema::dropIfExists('Fietsen');
     }
 }

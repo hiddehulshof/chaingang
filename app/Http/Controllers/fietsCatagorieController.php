@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\FietsCatagorie;
 use Illuminate\Http\Request;
 
-class fietCatagorieController extends Controller
+class fietsCatagorieController extends Controller
 {
     /**
      * Display a listing of the resource.
