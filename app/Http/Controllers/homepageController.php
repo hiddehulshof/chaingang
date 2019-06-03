@@ -3,11 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Bike;
-use App\BikeCatagory;
 use App\Product;
 use Illuminate\Http\Request;
 
-class fietsenController extends Controller
+class homepageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +16,7 @@ class fietsenController extends Controller
     public function index()
     {
         $bikes = Bike::all();
-        $categories = BikeCatagory::all();
-        return view("products.index", compact('bikes','categories'));
+        return view("welcome", compact('bikes'));
     }
 
     /**

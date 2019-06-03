@@ -4,6 +4,15 @@
 
     }
 }
+.product-height
+{
+    height: 300px;
+}
+.bottomRight
+{
+    right:10px;
+    bottom: 10px;
+}
 
 .product-image {
     background-image: url("../images/headermain.jpg");
@@ -88,4 +97,20 @@
             }
         }
     }
+}
+.dropdown-width{
+    width: 100%!important;
+    background: black !important;
+    border:none !important;
+    transform: translate3d(0px, 43px, 0px)!important;
+    border-radius: 0;
+}
+.custom-item{
+    text-align: center;
+    color: white;
+    width: 100%;
+    font-weight: 700;
+    float: right;
+    font-size: 18px;
+    text-transform: uppercase;
 }

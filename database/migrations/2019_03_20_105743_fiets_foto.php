@@ -13,12 +13,12 @@ class FietsFoto extends Migration
      */
     public function up()
     {
-        Schema::create('FietsFoto', function (Blueprint $table) {
+        Schema::create('BikePicture', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger("FietsID");
             $table->string("Filename", 255);
 
-            $table->foreign('FietsID')->references('id')->on('Fietsen')->onDelete('cascade');
+            $table->foreign('FietsID')->references('id')->on('Bikes')->onDelete('cascade');
         });
     }
 
@@ -29,6 +29,6 @@ class FietsFoto extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('FietsFoto');
+        Schema::dropIfExists('BikePicture');
     }
 }
