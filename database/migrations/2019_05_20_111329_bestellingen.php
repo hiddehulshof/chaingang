@@ -13,7 +13,7 @@ class Bestellingen extends Migration
      */
     public function up()
     {
-        Schema::create('Bestellingen', function (Blueprint $table) {
+        Schema::create('Orders', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger("klantID");
             $table->unsignedInteger("statusID");
@@ -24,8 +24,8 @@ class Bestellingen extends Migration
             $table->string("huisnr", 5);
             $table->string("plaats", 30);
 
-            $table->foreign('klantID')->references('id')->on('Klanten')->onDelete('cascade');
-            $table->foreign('StatusID')->references('id')->on('BestellingStatus')->onDelete('cascade');
+            $table->foreign('klantID')->references('id')->on('Customers')->onDelete('cascade');
+            $table->foreign('StatusID')->references('id')->on('OrderStatus')->onDelete('cascade');
         });
     }
 
@@ -36,6 +36,6 @@ class Bestellingen extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Bestellingen');
+        Schema::dropIfExists('Orders');
     }
 }

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Fietsen;
+use App\Bike;
 use Illuminate\Http\Request;
 
 class fietsenController extends Controller
@@ -14,7 +14,8 @@ class fietsenController extends Controller
      */
     public function index()
     {
-        //
+        $bikes = Bike::all();
+        return view("products.index", compact('bikes'));
     }
 
     /**

@@ -13,13 +13,13 @@ class BestellingItems extends Migration
      */
     public function up()
     {
-        Schema::create('BestellingItems', function (Blueprint $table) {
+        Schema::create('OrderItems', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('ProductID');
             $table->unsignedInteger('BestellingID');
 
-            $table->foreign('ProductID')->references('id')->on('Fietsen')->onDelete('cascade');
-            $table->foreign('BestellingID')->references('id')->on('Bestellingen')->onDelete('cascade');
+            $table->foreign('ProductID')->references('id')->on('Bikes')->onDelete('cascade');
+            $table->foreign('BestellingID')->references('id')->on('Orders')->onDelete('cascade');
         });
     }
 
@@ -30,6 +30,6 @@ class BestellingItems extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('BestellingItems');
+        Schema::dropIfExists('OrderItems');
     }
 }

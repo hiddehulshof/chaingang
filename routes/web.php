@@ -31,6 +31,7 @@ Route::get('/over-ons', function () {
 Route::get('/products', function () {
     return view('products/index');
 });
-Route::get('/products/product', function () {
-    return view('products/product_details');
-});
+Route::resource("products", "fietsenController");
+//Route::get('/products/product', function () {
+//    return view('products/product_details');
+//});

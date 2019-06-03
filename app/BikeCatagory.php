@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Nieuwsbrief extends Model
+class BikeCatagory extends Model
 {
     //
 }
