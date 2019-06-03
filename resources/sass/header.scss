@@ -36,11 +36,11 @@ body {
         }
 
         &-logo {
-            font-size: 26px;
+            font-size: 20px;
             color: white;
-            font-weight: 700;
+            font-weight: 900;
             text-transform: uppercase;
-            padding: 0 15px;
+            padding: 0 15px; 
             transition: .3s ease;
 
             &:hover {
