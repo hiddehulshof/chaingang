@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-4 pr-3 pl-3">
-                <i class="fas fa-home fa-2x"></i>
+                <i class="fas fa-home contactinfo__fasize"></i>
             </div>
             <div class="col-sm-8">
                 <b>Adres:</b>
@@ -15,7 +15,7 @@
                 </p>
             </div>
             <div class="col-sm-4 pr-3 pl-3">
-                <i class="fas fa-phone fa-2x"></i>
+                <i class="fas fa-phone contactinfo__fasize"></i>
             </div>
             <div class="col-sm-8">
                 <b>Telefoon:</b>
@@ -25,7 +25,7 @@
                 </p>
             </div>
             <div class="col-sm-4">
-                <i class="fas fa-envelope fa-2x"></i>
+                <i class="fas fa-envelope contactinfo__fasize"></i>
             </div>
             <div class="col-sm-8">
                 <b>E-mail:</b>
