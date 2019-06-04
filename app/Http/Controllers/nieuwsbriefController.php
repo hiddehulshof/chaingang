@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Nieuwsbrief;
+use App\NewsLetter;
 use Illuminate\Http\Request;
+use Illuminate\Database\QueryException;
 
 class nieuwsbriefController extends Controller
 {
@@ -33,9 +34,17 @@ class nieuwsbriefController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $newsletters = new NewsLetter();
+
+        try {
+            $newsletters->Email = Request("email");
+            $newsletters->save();
+        }
+        catch (QueryException $ex)
+        {}
+        return redirect()->back();
     }
 
     /**

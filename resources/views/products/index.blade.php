@@ -83,6 +83,14 @@
                         <div class="product-image"></div>
                         <div class="card-body position-relative">
                             <h5 class="card-title">{{$bike->naam}}</h5>
+                            <span>
+                                @if ($bike->aanbiedingsprijs == 0.00)
+                                    &euro;{{$bike->prijs}}
+                                @else
+                                    <span style="text-decoration: line-through red">&euro;{{$bike->prijs}}</span>
+                                    &euro;{{$bike->aanbiedingsprijs}}
+                                @endif
+                            </span>
                             <p class="card-text">{{$bike->omschrijving}}</p>
                             <div class="position-absolute bottomRight ">
                                 <a href="products/{{$bike->id}}" class="button">Bekijk</a>

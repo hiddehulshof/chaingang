@@ -39,6 +39,7 @@ Route::get('/profile', function () {
 });
 
 Route::resource("products", "fietsenController");
+Route::resource("newsletter", "nieuwsbriefController");
 //Route::get('/products/product', function () {
 //    return view('products/product_details');
 //});

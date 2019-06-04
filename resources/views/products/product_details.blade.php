@@ -38,13 +38,20 @@
                     </div>
                 </div>
                 <div class="col-md-6 py-3">
-                    <h5 class="article__heading">{{$bike->naam}}</h5>
+                    <h5 class="article__heading">{{$bike->naam}} {{$bike->type}}</h5>
                     <p class="card-text">
                         {{$bike->omschrijving}}
                     </p>
                     <table class="table">
                         <tr>
-                            <td><a class="font-weight-bold"><h3>{{$bike->prijs}}</h3></a></td>
+                            <td><a class="font-weight-bold"><h3>
+                                        @if ($bike->aanbiedingsprijs == 0.00)
+                                        {{$bike->prijs}}
+                                            @else
+                                            <span style="text-decoration: line-through red">{{$bike->prijs}}</span>
+                                            {{$bike->aanbiedingsprijs}}
+                                            @endif
+                                    </h3></a></td>
                         </tr>
                     </table>
                     <a href="#" class="button">Bestel</a>

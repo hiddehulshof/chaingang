@@ -51,10 +51,14 @@ class fietsenController extends Controller
     public function show($id)
     {
         $bike = Bike::find($id);
-        if ($bike === null or $bike->forsale ==0){
+        if ($bike === null){
             return view('404');
-
-        }else {
+        }
+        else if ($bike->forSale ==0)
+        {
+            return view('403');
+        }
+        else {
             return view('products.product_details', compact('bike'));
         }
     }

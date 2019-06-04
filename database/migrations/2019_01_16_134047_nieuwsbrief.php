@@ -15,7 +15,7 @@ class Nieuwsbrief extends Migration
     {
         Schema::create('Newsletters', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Email', 50);
+            $table->string('Email', 50)->unique();
         });
     }
 
