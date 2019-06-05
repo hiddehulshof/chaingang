@@ -30,14 +30,13 @@ Route::get('/over-ons', function () {
     return view('over-ons');
 });
 
-
 //Route::get('/product', function () {
 //    return view('products/product_details');
 //});
 Route::get('/profile', function () {
     return view('customers/profile');
 });
-
+Route::post("/login", "klantenContrller@login");
 Route::resource("products", "fietsenController");
 Route::resource("newsletter", "nieuwsbriefController");
 //Route::get('/products/product', function () {

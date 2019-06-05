@@ -51,7 +51,7 @@ class fietsenController extends Controller
     public function show($id)
     {
         $bike = Bike::find($id);
-        $categories = $bike->type;
+        $categories = BikeCatagory::all();
         if ($bike === null){
             return view('404');
         }
