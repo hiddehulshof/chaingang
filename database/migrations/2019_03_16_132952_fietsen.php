@@ -13,7 +13,7 @@ class Fietsen extends Migration
      */
     public function up()
     {
-        Schema::create('Fietsen', function (Blueprint $table) {
+        Schema::create('Bikes', function (Blueprint $table) {
             $table->increments('id');
             $table->decimal('prijs');
             $table->decimal('aanbiedingsprijs');
@@ -30,7 +30,7 @@ class Fietsen extends Migration
             // Fietsen is afhankelijk van catagorie. Fiets wordt verwijderd,
             // Dan intresseert het catagorie niet. Als catagorie wordt verwijderd,
             // Dan vervietigd alle fietsen in die catagorie zichzelf.
-            $table->foreign('typeId')->references('id')->on('FietsCatagorie')->onDelete('cascade');
+            $table->foreign('typeId')->references('id')->on('BikeCategories')->onDelete('cascade');
         });
     }
 
@@ -41,6 +41,6 @@ class Fietsen extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Fietsen');
+        Schema::dropIfExists('Bikes');
     }
 }

@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+Route::resource("/", "homepageController");
+
 Route::get('/admin', function () {
     return view('admin/admin');
 });
@@ -28,8 +30,12 @@ Route::get('/over-ons', function () {
     return view('over-ons');
 });
 
-Route::get('/products', function () {
-    return view('products/index');
+
+//Route::get('/product', function () {
+//    return view('products/product_details');
+//});
+Route::get('/profile', function () {
+    return view('customers/profile');
 });
 Route::get('/products/product', function () {
     return view('products/product_details');
@@ -37,3 +43,10 @@ Route::get('/products/product', function () {
 Route::get('/register', function () {
     return view('register');
 });
+
+Route::resource("products", "fietsenController");
+Route::resource("newsletter", "nieuwsbriefController");
+//Route::get('/products/product', function () {
+//    return view('products/product_details');
+//});
+

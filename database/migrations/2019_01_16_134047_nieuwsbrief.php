@@ -13,9 +13,9 @@ class Nieuwsbrief extends Migration
      */
     public function up()
     {
-        Schema::create('Nieuwsbrief', function (Blueprint $table) {
+        Schema::create('Newsletters', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('Email', 50);
+            $table->string('Email', 50)->unique();
         });
     }
 
@@ -26,6 +26,6 @@ class Nieuwsbrief extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Nieuwsbrief');
+        Schema::dropIfExists('Newsletters');
     }
 }

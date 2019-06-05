@@ -4,16 +4,16 @@
 <meta name="author" content="">
 <title>ChainGang</title>
 <!-- Bootstrap core CSS -->
-<link rel="stylesheet" href="css/app.css">
-<link rel="stylesheet" href="css/header.css">
-<link rel="stylesheet" href="css/footer.css">
-<link rel="stylesheet" href="css/contact.css">
-<link rel="stylesheet" href="css/newsletter.css">
-<link rel="stylesheet" href="css/over-ons.css">
-<link rel="stylesheet" href="css/admin.css">
-<link rel="stylesheet" href="css/products.css">
-<link rel="stylesheet" href="css/article.css">
-<link rel="stylesheet" href="css/reviews.css">
+<link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" href="{{ asset('css/header.css') }}">
+<link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+<link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+<link rel="stylesheet" href="{{ asset('css/newsletter.css') }}">
+<link rel="stylesheet" href="{{ asset('css/over-ons.css') }}">
+<link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+<link rel="stylesheet" href="{{ asset('css/products.css') }}">
+<link rel="stylesheet" href="{{ asset('css/article.css') }}">
+<link rel="stylesheet" href="{{ asset('css/reviews.css') }}">
 
 <!-- Font awesome -->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">

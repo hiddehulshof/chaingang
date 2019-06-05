@@ -13,7 +13,7 @@ class Gebruikers extends Migration
      */
     public function up()
     {
-        Schema::create('Gebruikers', function (Blueprint $table) {
+        Schema::create('Users', function (Blueprint $table) {
             $table->increments('id');
             $table->string('voornaam', 50);
             $table->string('achternaam', 50);
@@ -33,6 +33,6 @@ class Gebruikers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Gebruikers');
+        Schema::dropIfExists('Users');
     }
 }

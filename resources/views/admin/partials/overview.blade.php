@@ -1,6 +1,6 @@
 <div class="admin-article">
     <div class="container">
-        <div class="row">
+        <div class="row pb-5">
             <div class="col-sm">
                 <h3><b>gebruikers</b></h3>
             </div>

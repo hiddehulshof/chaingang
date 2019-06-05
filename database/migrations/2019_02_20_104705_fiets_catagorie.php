@@ -13,7 +13,7 @@ class FietsCatagorie extends Migration
      */
     public function up()
     {
-        Schema::create('FietsCatagorie', function (Blueprint $table)
+        Schema::create('BikeCategories', function (Blueprint $table)
         {
             $table->increments('id');
             $table->string('Naam', 255);
@@ -27,6 +27,6 @@ class FietsCatagorie extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('FietsCatagorie');
+        Schema::dropIfExists('BikeCategories');
     }
 }
