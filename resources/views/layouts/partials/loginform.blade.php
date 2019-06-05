@@ -16,6 +16,6 @@
         <div class="form-group">
             <a href="admin"><button type="submit" class="button btn-block">Log in</button></a>
         </div>
-        <p class="text-center"><a href="#"><b>Create an Account</b></a></p>
+        <p class="text-center"><a href="/register"><b>Create an Account</b></a></p>
     </div>
 </div>

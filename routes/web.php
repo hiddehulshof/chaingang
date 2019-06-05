@@ -34,3 +34,6 @@ Route::get('/products', function () {
 Route::get('/products/product', function () {
     return view('products/product_details');
 });
+Route::get('/register', function () {
+    return view('register');
+});
