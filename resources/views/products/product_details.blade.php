@@ -79,6 +79,11 @@
                                     Nee
                             @endif</td>
                         </tr>
+                        <tr>
+                            <td><b>Type fiets:</b></td>
+
+                            <td>{{$bike->type}}</td>
+                        </tr>
                     </table>
                 </div>
             </div>

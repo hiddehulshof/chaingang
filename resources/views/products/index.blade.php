@@ -9,7 +9,7 @@
             <h1 class="article__heading">Producten</h1>
 
             <div class="row justify-content-between">
-                <div class="col-lg-6 col-md-3">
+                <div class="col-lg-4 ">
 
                     <ul class="brands">
                         <li>
@@ -27,45 +27,58 @@
                     </ul>
                 </div>
 
-                <div class="col-lg-2 col-md-3 p-2">
+                <div class="col-lg-2 p-2">
                     <div class="dropdown">
-                        @php
-                            $selected = 0;
-                        @endphp
-                        @foreach($categories as $category)
-                            @if($selected == 0)
                         <button class="button filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fa fa-arrow-down pr-2"></i>
-                            {{$category->Naam}}
+                            Type
                         </button>
-                            @elseif($selected == 1)
-                        <div class="dropdown-menu dropdown-width " aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right pr-2"></i>{{$category->Naam}}</a>
-                            @else
-                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>{{$category->Naam}}</a>
-                            @endif
 
-                                @php
-                                    $selected++;
-                                @endphp
+
+                        <div class="dropdown-menu dropdown-width " aria-labelledby="dropdownMenuButton">
+                            @foreach($categories as $category)
+                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right pr-2"></i>{{$category->Naam}}</a>
+
+
                                 @endforeach
                         </div>
                     </div>
 
 
                 </div>
-                <div class="col-lg-2 col-md-3 p-2">
-                    <div class="button   filter">
-                        <i class="fa fa-arrow-down pr-2"></i>
+                <div class="col-lg-3  p-2">
+                    <div class="dropdown">
+                        <button class="button filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-arrow-down pr-2"></i>
+                            Versnellingen
+                        </button>
+                        <div class="dropdown-menu dropdown-width " aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right pr-2"></i>1</a>
 
-                        Type
+                                <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>2</a>
+                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>3</a>
+                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>4</a>
+                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>5</a>
+                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>6</a>
+                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>7+</a>
+
+
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-2 col-md-3 p-2">
-                    <div class="button  filter">
-                        <i class="fa fa-arrow-down pr-2"></i>
+                <div class="col-lg-2  p-2">
+                    <div class="dropdown">
+                        <button class="button filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-arrow-down pr-2"></i>
+                            Prijs
+                        </button>
+                        <div class="dropdown-menu dropdown-width " aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right pr-2"></i>Hoog</a>
 
-                        prijs
+                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>Laag</a>
+
+
+                        </div>
                     </div>
                 </div>
 
@@ -85,13 +98,21 @@
                             <h5 class="card-title">{{$bike->naam}}</h5>
                             <span>
                                 @if ($bike->aanbiedingsprijs == 0.00)
-                                    &euro;{{$bike->prijs}}
+                                   <h1> &euro;{{$bike->prijs}}</h1>
                                 @else
-                                    <span style="text-decoration: line-through red">&euro;{{$bike->prijs}}</span>
-                                    &euro;{{$bike->aanbiedingsprijs}}
+                                    <span style="text-decoration: line-through red"><h4>&euro;{{$bike->prijs}}</h4></span>
+                                    <h1>&euro;{{$bike->aanbiedingsprijs}}</h1>
                                 @endif
                             </span>
                             <p class="card-text">{{$bike->omschrijving}}</p>
+                            <ul>
+                                <li>Versnellingen: {{$bike->versnellingen}}</li>
+                                @foreach($categories as $type)
+                                    @if($bike->typeId == $type->id )
+                                        <li>Type: {{$type->Naam}}</li>
+                                    @endif
+                                @endforeach
+                            </ul>
                             <div class="position-absolute bottomRight ">
                                 <a href="products/{{$bike->id}}" class="button">Bekijk</a>
                             </div>

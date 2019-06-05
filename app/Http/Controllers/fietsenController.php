@@ -51,6 +51,7 @@ class fietsenController extends Controller
     public function show($id)
     {
         $bike = Bike::find($id);
+        $categories = $bike->type;
         if ($bike === null){
             return view('404');
         }
@@ -59,7 +60,7 @@ class fietsenController extends Controller
             return view('403');
         }
         else {
-            return view('products.product_details', compact('bike'));
+            return view('products.product_details', compact('bike', 'categories'));
         }
     }
 

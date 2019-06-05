@@ -10,4 +10,5 @@ class Bike extends Model
     {
         return $this->belongsTo(BikeCatagory::class);
     }
+
 }
