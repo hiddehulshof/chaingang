@@ -82,4 +82,11 @@ class klantenController extends Controller
     {
         //
     }
+
+    public function login()
+    {
+        $Uname = \request("username");
+        $pass = \request("password");
+        $remember = \request("remember");
+    }
 }

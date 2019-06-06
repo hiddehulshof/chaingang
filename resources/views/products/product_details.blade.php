@@ -81,8 +81,13 @@
                         </tr>
                         <tr>
                             <td><b>Type fiets:</b></td>
-
-                            <td>{{$bike->type}}</td>
+                            <td>
+                                @foreach($categories as $type)
+                                    @if($bike->typeId == $type->id )
+                                        {{$type->Naam}}
+                                    @endif
+                                @endforeach
+                            </td>
                         </tr>
                     </table>
                 </div>
