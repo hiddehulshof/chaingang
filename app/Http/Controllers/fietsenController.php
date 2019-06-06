@@ -45,7 +45,7 @@ class fietsenController extends Controller
         $categories = BikeCatagory::all();
         $brands = $collection->pluck('merk')->unique();
 
-        if (request('category')!= 0) {
+        if (request('category')!= 0) {                                      //if statements zorgen dat de resultaten een aantal keer gefilterd wordt
             $filtered = $collection->filter(function ($value, $key) {
                 return $value->typeId == request('category');
             });
