@@ -18,7 +18,10 @@ class fietsenController extends Controller
     {
         $bikes = Bike::all();
         $categories = BikeCatagory::all();
-        return view("products.index", compact('bikes','categories'));
+        $brands = $bikes->pluck('merk')->unique();
+
+
+        return view("products.index", compact('bikes','categories','brands'));
     }
 
     /**
@@ -30,7 +33,66 @@ class fietsenController extends Controller
     {
         //
     }
+    public function filter()
+    {
+        $collection = Bike::all();
 
+        if(request('search')!= "Zoek")
+        {
+            $collection = Bike::query()->where('naam', 'LIKE', '%'.request('search').'%')->get();
+
+        }
+        $categories = BikeCatagory::all();
+        $brands = $collection->pluck('merk')->unique();
+
+        if (request('category')!= 0) {
+            $filtered = $collection->filter(function ($value, $key) {
+                return $value->typeId == request('category');
+            });
+        }
+        else{
+            $filtered = $collection;
+        }
+
+        if (request('brand')!= 'none') {
+            $filteredbrands = $filtered->filter(function ($value, $key) {
+                return $value->merk == request('brand');
+            });
+        }
+        else{
+            $filteredbrands  =  $filtered;
+        }
+
+        if (request('gears')!= 0 && request('gears')!= 6 ) {
+            $filteredGears = $filteredbrands->filter(function ($value, $key) {
+                return $value->versnellingen == request('gears');
+            });
+        }
+        elseif (request('gears')== 6) {
+            $filteredGears = $filteredbrands->filter(function ($value, $key) {
+                return $value->versnellingen > 6;
+            });
+        }
+        else{
+            $filteredGears = $filteredbrands;
+        }
+
+
+
+        $bikes = $filteredGears;
+        if (request('pricefilter')== 1 ) {
+            $bikes = $bikes->sortBy('prijs');
+        }
+        elseif (request('pricefilter')== 2 ) {
+            $bikes = $bikes->sortByDesc('prijs');
+        }
+
+
+
+
+
+        return view("products.index", compact('bikes','categories', 'brands'));
+    }
     /**
      * Store a newly created resource in storage.
      *

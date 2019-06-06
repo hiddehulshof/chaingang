@@ -8,79 +8,113 @@
         <div class="container">
             <h1 class="article__heading">Producten</h1>
 
-            <div class="row justify-content-between">
-                <div class="col-lg-4 ">
-
-                    <ul class="brands">
-                        <li>
-                            <a>Gazelle</a>
-                        </li>
-                        <li>
-                            <b><a> Batavius</a></b>
-                        </li>
-                        <li>
-                            <a> Stella</a>
-                        </li>
-                        <li>
-                            <a>Sprint</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="col-lg-2 p-2">
-                    <div class="dropdown">
-                        <button class="button filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-arrow-down pr-2"></i>
-                            Type
-                        </button>
+            <div class="row ">
 
 
-                        <div class="dropdown-menu dropdown-width " aria-labelledby="dropdownMenuButton">
-                            @foreach($categories as $category)
-                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right pr-2"></i>{{$category->Naam}}</a>
+                <div class="col-lg-6 p-2 ">
+                <form class="box row" method="POST" action="/products">
+                        @csrf
+                    <div class="col-lg-6 ">
+                        <div class="field mb-2 mt-2">
+                            <div class="control">
+                                <input type="text" class="form-control" name="search"
+                                       aria-describedby="search" placeholder="Zoek">
+                            </div>
+                        </div>
 
 
+
+                        <div class="field">
+                            <div class="control">
+                                <select class="button filter" name="category">
+                                    <option class="dropdown-item custom-item" value="0">Fiets type</option>
+                                @foreach($categories as $category)
+                                        <option class="dropdown-item custom-item" value="{{$category->id}}">{{ $category->Naam }}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+                    <div class="field">
+                        <div class="control">
+                            <select class="button filter" name="brand">
+                                    <option class="dropdown-item custom-item" value="none">merk</option>
+                                @foreach($brands as $brand)
+                                    <option class="dropdown-item custom-item" value="{{$brand}}">{{ $brand}}</option>
                                 @endforeach
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <select class="button filter" name="gears">
+
+                                    <option class="dropdown-item custom-item" value="0">Aantal versnellingen</option>
+                                    <option class="dropdown-item custom-item" value="1">1 versnelling</option>
+                                    <option class="dropdown-item custom-item" value="2">2 versnellingen</option>
+                                    <option class="dropdown-item custom-item" value="3">3 versnellingen</option>
+                                    <option class="dropdown-item custom-item" value="4">4 versnellingen</option>
+                                    <option class="dropdown-item custom-item" value="5">5 versnellingen</option>
+                                    <option class="dropdown-item custom-item" value="6">meer dan 6</option>
+
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <select class="button filter" name="pricefilter">
+                                <option class="dropdown-item custom-item" value="0">Prijs</option>
+
+                                <option class="dropdown-item custom-item" value="1">Laag naar hoog</option>
+                                <option class="dropdown-item custom-item" value="2">Hoog naar laag</option>
+
+                            </select>
                         </div>
                     </div>
 
 
-                </div>
-                <div class="col-lg-3  p-2">
-                    <div class="dropdown">
-                        <button class="button filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-arrow-down pr-2"></i>
-                            Versnellingen
-                        </button>
-                        <div class="dropdown-menu dropdown-width " aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right pr-2"></i>1</a>
-
-                                <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>2</a>
-                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>3</a>
-                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>4</a>
-                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>5</a>
-                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>6</a>
-                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>7+</a>
-
-
+                    {{--<div class="field">--}}
+                        {{--<div class="control">--}}
+                            {{--<select class="button filter" name="category">--}}
+                                {{--@foreach($categories as $category)--}}
+                                    {{--<option class="dropdown-item custom-item" value="{{$category->id}}">{{ $category->Naam }}</option>--}}
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    </div>
+                    <div class="col-lg-6 ">
+                        <div class="field">
+                            <div class="control">
+                                <button type="submit" class="button is-link">Zoek <i class="fas fa-search"></i></button>
+                            </div>
                         </div>
                     </div>
+                </form>
+
                 </div>
-                <div class="col-lg-2  p-2">
-                    <div class="dropdown">
-                        <button class="button filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="fa fa-arrow-down pr-2"></i>
-                            Prijs
-                        </button>
-                        <div class="dropdown-menu dropdown-width " aria-labelledby="dropdownMenuButton">
-                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right pr-2"></i>Hoog</a>
-
-                            <a class="dropdown-item custom-item" href="#">  <i class="fa fa-angle-right  pr-2"></i>Laag</a>
+                {{--<div class="col-lg-2 p-2">--}}
+                    {{--<form class="box" method="POST" action="/products">--}}
+                    {{--<div class="dropdown">--}}
+                        {{--<button class="button filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
+                            {{--<i class="fa fa-arrow-down pr-2"></i>--}}
+                            {{--Type--}}
+                        {{--</button>--}}
 
 
-                        </div>
-                    </div>
-                </div>
+                        {{--<div class="dropdown-menu dropdown-width " aria-labelledby="dropdownMenuButton">--}}
+                            {{--<select class="input" name="ontvanger">--}}
+                            {{--@foreach($categories as $category)--}}
+                                {{--<option value="{{$category->id}}">--}}
+                            {{--<a class="dropdown-item custom-item"  type="submit">  <i class="fa fa-angle-right pr-2"></i>{{$category->Naam}}</a>--}}
+                                {{--</option>--}}
+
+                                {{--@endforeach--}}
+                            {{--</select>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--</form>--}}
+
+                {{--</div>--}}
 
 
             </div>

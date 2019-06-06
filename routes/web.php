@@ -14,6 +14,9 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+use App\Bike;
+use Illuminate\Support\Facades\Input;
+
 Route::resource("/", "homepageController");
 
 Route::get('/admin', function () {
@@ -39,6 +42,8 @@ Route::get('/profile', function () {
 });
 
 Route::resource("products", "fietsenController");
+Route::post("products", "fietsenController@filter");
+
 Route::resource("newsletter", "nieuwsbriefController");
 //Route::get('/products/product', function () {
 //    return view('products/product_details');
