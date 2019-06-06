@@ -14,8 +14,7 @@
 //Route::get('/', function () {
 //    return view('welcome');
 //});
-use App\Bike;
-use Illuminate\Support\Facades\Input;
+
 
 Route::resource("/", "homepageController");
 
