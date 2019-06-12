@@ -53,7 +53,6 @@
                                         <option class="dropdown-item custom-item" value="0">Prijs</option>
                                         <option class="dropdown-item custom-item" value="1">Laag naar hoog</option>
                                         <option class="dropdown-item custom-item" value="2">Hoog naar laag</option>
-
                                     </select>
                                 </div>
                             </div>
@@ -63,24 +62,19 @@
                         <div class="col d-flex">
                             <div class="field w-50">
                                 <div class="control">
-                                    <input type="text" class="form-control" name="search" aria-describedby="search"
-                                        placeholder="Zoek">
+                                    <input type="text" class="form-control" name="search" aria-describedby="search" placeholder="Zoek">
                                 </div>
                             </div>
 
                             <div class="field w-50">
                                 <div class="control">
-                                    <button type="submit" class="button is-link w-100 m-0">Toepassen <i
-                                            class="fas fa-search"></i></button>
+                                    <button type="submit" class="button is-link w-100 m-0">Toepassen <i class="fas fa-search"></i></button>
                                 </div>
                             </div>
                         </div>
                 </form>
             </div>
         </div>
-
-
-
 
         <div class="row justify-content products">
             @foreach($bikes as $bike)
