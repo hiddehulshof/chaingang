@@ -32,12 +32,17 @@ Route::get('/over-ons', function () {
     return view('over-ons');
 });
 
-//Route::get('/product', function () {
-//    return view('products/product_details');
-//});
+Route::get('/product', function () {
+    return view('products/product_details');
+});
 Route::get('/profile', function () {
     return view('customers/profile');
 });
+
+Route::get('/register', function () {
+    return view('register');
+});
+
 Route::post("/login", "klantenController@login");
 Route::resource("products", "fietsenController");
 Route::post("products", "fietsenController@filter");
@@ -52,7 +57,5 @@ Route::delete('remove-from-cart', 'fietsenController@remove');
 Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 
 Route::resource("newsletter", "nieuwsbriefController");
-//Route::get('/products/product', function () {
-//    return view('products/product_details');
-//});
+
 

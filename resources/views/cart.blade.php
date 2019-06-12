@@ -1,6 +1,8 @@
-@extends('layouts.mainlayout' , ['page' => 'nologin']))
+@extends('layouts.contentlayout')
 @section('title', 'Cart')
-
+@section('headercontent')
+    <h1>WinkelWagen</h1>
+@endsection
 @section('content')
 <div class="article">
     <div class="container">
