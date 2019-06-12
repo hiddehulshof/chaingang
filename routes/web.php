@@ -38,7 +38,7 @@ Route::get('/over-ons', function () {
 Route::get('/profile', function () {
     return view('customers/profile');
 });
-Route::post("/login", "klantenContrller@login");
+Route::post("/login", "klantenController@login");
 Route::resource("products", "fietsenController");
 Route::post("products", "fietsenController@filter");
 
