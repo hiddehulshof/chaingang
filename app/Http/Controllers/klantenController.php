@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Klanten;
+use App\Customer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class klantenController extends Controller
 {
@@ -85,8 +86,25 @@ class klantenController extends Controller
 
     public function login()
     {
-        $Uname = \request("username");
+        $Email = \request("email");
         $pass = \request("password");
         $remember = \request("remember");
+
+        $userdata = array(
+            'email'     => request("email"),
+            'password'  => request("password")
+        );
+
+        if (Auth::attempt($userdata))
+        {
+            return view("/");
+        }
+
+        $user = Customer::query()->where("Email", "LIKE", $Email)->where("wachtwoord", "LIKE", $pass)->first();
+        if ($user == null)
+        {
+            return back()->withInput();
+        }
+        dd($user);
     }
 }

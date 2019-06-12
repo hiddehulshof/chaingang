@@ -43,8 +43,7 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::post("/login", "klantenContrller@login");
-
+Route::post("/login", "klantenController@login");
 Route::resource("products", "fietsenController");
 Route::post("products", "fietsenController@filter");
 
