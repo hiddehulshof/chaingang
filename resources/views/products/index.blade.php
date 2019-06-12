@@ -38,11 +38,11 @@
                                 <div class="control">
                                     <select class="button filter" name="gears">
                                         <option class="dropdown-item custom-item" value="0">Aantal versnellingen</option>
-                                        <option class="dropdown-item custom-item" value="1">1 versnelling</option>
-                                        <option class="dropdown-item custom-item" value="2">2 versnellingen</option>
-                                        <option class="dropdown-item custom-item" value="3">3 versnellingen</option>
-                                        <option class="dropdown-item custom-item" value="4">4 versnellingen</option>
-                                        <option class="dropdown-item custom-item" value="5">5 versnellingen</option>
+
+                                        <?php for ($i=1; $i <= 5; $i++): ?>
+                                            <option class="dropdown-item custom-item" value="<?= $i; ?>"><?= $i; ?> versnellingen</option>
+                                        <?php endfor; ?>
+
                                         <option class="dropdown-item custom-item" value="6">meer dan 6</option>
                                     </select>
                                 </div>
