@@ -8,9 +8,6 @@
     <div class="container">
         <h1 class="article__heading mb-5">Producten</h1>
 
-
-
-
         <div class="p-2 w-100">
             <form class="box row" method="POST" action="/products">
                 @csrf
@@ -85,33 +82,7 @@
                         </div>
                     </div>
             </form>
-
         </div>
-        {{--<div class="col-lg-2 p-2">--}}
-        {{--<form class="box" method="POST" action="/products">--}}
-        {{--<div class="dropdown">--}}
-        {{--<button class="button filter" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--}}
-        {{--<i class="fa fa-arrow-down pr-2"></i>--}}
-        {{--Type--}}
-        {{--</button>--}}
-
-
-        {{--<div class="dropdown-menu dropdown-width " aria-labelledby="dropdownMenuButton">--}}
-        {{--<select class="input" name="ontvanger">--}}
-        {{--@foreach($categories as $category)--}}
-        {{--<option value="{{$category->id}}">--}}
-        {{--<a class="dropdown-item custom-item"  type="submit">  <i class="fa fa-angle-right pr-2"></i>{{$category->Naam}}</a>--}}
-        {{--</option>--}}
-
-        {{--@endforeach--}}
-        {{--</select>--}}
-        {{--</div>--}}
-        {{--</div>--}}
-        {{--</form>--}}
-
-        {{--</div>--}}
-
-
     </div>
 
 
