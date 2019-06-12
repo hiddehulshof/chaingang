@@ -11,19 +11,20 @@
             <div class="row ">
 
 
-                <div class="col-lg-6 p-2 ">
+                <div class="p-2 w-100">
                 <form class="box row" method="POST" action="/products">
                         @csrf
-                    <div class="col-lg-6 ">
+                    <div class="col-lg-4 ">
                         <div class="field mb-2 mt-2">
                             <div class="control">
                                 <input type="text" class="form-control" name="search"
                                        aria-describedby="search" placeholder="Zoek">
                             </div>
                         </div>
+                    </div>
 
 
-
+                    <div class="col-lg-4 ">
                         <div class="field">
                             <div class="control">
                                 <select class="button filter" name="category">
@@ -82,10 +83,10 @@
                         {{--</div>--}}
                     {{--</div>--}}
                     </div>
-                    <div class="col-lg-6 ">
+                    <div class="col-lg-4 ">
                         <div class="field">
                             <div class="control">
-                                <button type="submit" class="button is-link">Zoek <i class="fas fa-search"></i></button>
+                                <button type="submit" class="button is-link w-100">Zoek <i class="fas fa-search"></i></button>
                             </div>
                         </div>
                     </div>

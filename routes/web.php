@@ -42,6 +42,15 @@ Route::post("/login", "klantenContrller@login");
 Route::resource("products", "fietsenController");
 Route::post("products", "fietsenController@filter");
 
+Route::get('cart', 'fietsenController@cart');
+
+Route::patch('update-cart', 'fietsenController@update');
+
+Route::delete('remove-from-cart', 'fietsenController@remove');
+
+
+Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
+
 Route::resource("newsletter", "nieuwsbriefController");
 //Route::get('/products/product', function () {
 //    return view('products/product_details');
