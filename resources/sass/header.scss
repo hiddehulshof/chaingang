@@ -114,17 +114,19 @@ body {
 
     &__dropdown {
         position: fixed;
-        top: 72px;
+        top: -2000px;
         right: 0;
-        bottom: 0;
+        bottom: 2000px;
         left: 0;
         opacity: 0;
-        transition: .3s ease;
+        transition: opacity .3s ease;
         background: rgba(0, 0, 0, 0.85);
         z-index: 99999;
 
         &.active {
             opacity: 100;
+            top: 72px;
+            bottom: 0;
         }
 
         &--wrap {

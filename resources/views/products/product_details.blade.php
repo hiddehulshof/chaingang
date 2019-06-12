@@ -54,7 +54,7 @@
                                     </h3></a></td>
                         </tr>
                     </table>
-                    <a href="#" class="button">Bestel</a>
+                    <a href="{{ url('add-to-cart/'.$bike->id) }}" class="button">Bestel</a>
                 </div>
                 <div class="col-12 py-5">
                     <h3 class="article__heading py-3">Specificaties</h3>
@@ -81,8 +81,13 @@
                         </tr>
                         <tr>
                             <td><b>Type fiets:</b></td>
-
-                            <td>{{$bike->type}}</td>
+                            <td>
+                                @foreach($categories as $type)
+                                    @if($bike->typeId == $type->id )
+                                        {{$type->Naam}}
+                                    @endif
+                                @endforeach
+                            </td>
                         </tr>
                     </table>
                 </div>

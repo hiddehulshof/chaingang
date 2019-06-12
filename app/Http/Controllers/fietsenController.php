@@ -18,7 +18,10 @@ class fietsenController extends Controller
     {
         $bikes = Bike::all();
         $categories = BikeCatagory::all();
-        return view("products.index", compact('bikes','categories'));
+        $brands = $bikes->pluck('merk')->unique();
+
+
+        return view("products.index", compact('bikes','categories','brands'));
     }
 
     /**
@@ -30,7 +33,66 @@ class fietsenController extends Controller
     {
         //
     }
+    public function filter()
+    {
+        $collection = Bike::all();
 
+        if(request('search')!= "Zoek")
+        {
+            $collection = Bike::query()->where('naam', 'LIKE', '%'.request('search').'%')->get();
+
+        }
+        $categories = BikeCatagory::all();
+        $brands = $collection->pluck('merk')->unique();
+
+        if (request('category')!= 0) {                                      //if statements zorgen dat de resultaten een aantal keer gefilterd wordt
+            $filtered = $collection->filter(function ($value, $key) {
+                return $value->typeId == request('category');
+            });
+        }
+        else{
+            $filtered = $collection;
+        }
+
+        if (request('brand')!= 'none') {
+            $filteredbrands = $filtered->filter(function ($value, $key) {
+                return $value->merk == request('brand');
+            });
+        }
+        else{
+            $filteredbrands  =  $filtered;
+        }
+
+        if (request('gears')!= 0 && request('gears')!= 6 ) {
+            $filteredGears = $filteredbrands->filter(function ($value, $key) {
+                return $value->versnellingen == request('gears');
+            });
+        }
+        elseif (request('gears')== 6) {
+            $filteredGears = $filteredbrands->filter(function ($value, $key) {
+                return $value->versnellingen > 6;
+            });
+        }
+        else{
+            $filteredGears = $filteredbrands;
+        }
+
+
+
+        $bikes = $filteredGears;
+        if (request('pricefilter')== 1 ) {
+            $bikes = $bikes->sortBy('prijs');
+        }
+        elseif (request('pricefilter')== 2 ) {
+            $bikes = $bikes->sortByDesc('prijs');
+        }
+
+
+
+
+
+        return view("products.index", compact('bikes','categories', 'brands'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -51,7 +113,7 @@ class fietsenController extends Controller
     public function show($id)
     {
         $bike = Bike::find($id);
-        $categories = $bike->type;
+        $categories = BikeCatagory::all();
         if ($bike === null){
             return view('404');
         }
@@ -82,9 +144,36 @@ class fietsenController extends Controller
      * @param  \App\Fietsen  $fietsen
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Fietsen $fietsen)
+
+    public function update(Request $request)
     {
-        //
+        if($request->id and $request->quantity)
+        {
+            $cart = session()->get('cart');
+
+            $cart[$request->id]["quantity"] = $request->quantity;
+
+            session()->put('cart', $cart);
+
+            session()->flash('success', 'Cart updated successfully');
+        }
+    }
+
+    public function remove(Request $request)
+    {
+        if($request->id) {
+
+            $cart = session()->get('cart');
+
+            if(isset($cart[$request->id])) {
+
+                unset($cart[$request->id]);
+
+                session()->put('cart', $cart);
+            }
+
+            session()->flash('success', 'Product removed successfully');
+        }
     }
 
     /**
@@ -96,5 +185,61 @@ class fietsenController extends Controller
     public function destroy(Fietsen $fietsen)
     {
         //
+    }
+    public function cart()
+    {
+        return view('cart');
+    }
+    public function addToCart($id)
+    {
+        $product = Bike::find($id);
+
+        if(!$product) {
+
+            abort(404);
+
+        }
+
+        $cart = session()->get('cart');
+
+        // if cart is empty then this the first product
+        if(!$cart) {
+
+            $cart = [
+                $id => [
+                    "name" => $product->naam,
+                    "quantity" => 1,
+                    "price" => $product->prijs,
+                    "photo" => $product->photo
+                ]
+            ];
+
+            session()->put('cart', $cart);
+
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+        }
+
+        // if cart not empty then check if this product exist then increment quantity
+        if(isset($cart[$id])) {
+
+            $cart[$id]['quantity']++;
+
+            session()->put('cart', $cart);
+
+            return redirect()->back()->with('success', 'Product added to cart successfully!');
+
+        }
+
+        // if item not exist in cart then add to cart with quantity = 1
+        $cart[$id] = [
+            "name" => $product->naam,
+            "quantity" => 1,
+            "price" => $product->prijs,
+            "photo" => $product->photo
+        ];
+
+        session()->put('cart', $cart);
+
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 }

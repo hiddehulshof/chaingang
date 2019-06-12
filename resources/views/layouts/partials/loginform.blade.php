@@ -1,21 +1,23 @@
 <div class="article border-primary rounded-lg background">
     <div class="container col-md-4">
-    <form>
+    <form method="post" action="login">
         <h2 class="text-center article__heading">Log in</h2>
         <div class="form-group">
-            <input type="text" class="form-control" placeholder="Username" required="required">
+            <input type="text" name="username" class="form-control" placeholder="Username" required="required">
         </div>
         <div class="form-group">
-            <input type="password" class="form-control" placeholder="Password" required="required">
+            <input type="password" name="pass" class="form-control" placeholder="Password" required="required">
         </div>
 
         <div class="clearfix">
-            <label class="pull-left checkbox-inline"><input type="checkbox"> <b>Remember me</b></label>
+            <label class="pull-left checkbox-inline"><input type="checkbox" name="remember"> <b>Remember me</b></label>
         </div>
-    </form>
         <div class="form-group">
-            <a href="admin"><button type="submit" class="button btn-block">Log in</button></a>
+            <a><button type="submit" class="button btn-block">Log in</button></a>
         </div>
         <p class="text-center"><a href="/register"><b>Create an Account</b></a></p>
+
+    </form>
+
     </div>
 </div>
