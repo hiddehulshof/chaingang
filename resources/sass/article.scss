@@ -1,6 +1,6 @@
 .article {
-        padding: 100px 15px;
-        background-color: #F4F4F4;
+    padding: 100px 15px;
+    background-color: #F4F4F4;
 
     &__heading {
         font-weight: 900;
@@ -27,12 +27,27 @@
         background: black !important;
         padding: 5px 20px;
         float: right;
-        font-weight: 700;
-        font-size: 18px;
+        font-weight: 900;
+        font-size: 16px;
+        border-radius: 4px;
+        min-height: 40px;
+
+        i {
+            margin-left: 15px;
+            font-size: 14px;
+        }
+    }
+
+    .field {
+        margin-right: 25px;
+    }
+
+    .form-control {
+        min-height: 40px;
     }
 }
 
-.register-width{
+.register-width {
     max-width: 700px;
     margin: 0 auto;
 }
