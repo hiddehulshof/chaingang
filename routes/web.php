@@ -41,6 +41,10 @@ Route::get('/register', function () {
     return view('register');
 });
 
+Route::get('/reviews', function() {
+    return view('reviews');
+});
+
 Route::post("/login", "klantenController@login");
 Route::resource("products", "fietsenController");
 Route::post("products", "fietsenController@filter");
@@ -69,5 +73,3 @@ Route::get('admin/products/delete/{id}', 'gebruikerController@deleteproduct');
 Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 
 Route::resource("newsletter", "nieuwsbriefController");
-
-

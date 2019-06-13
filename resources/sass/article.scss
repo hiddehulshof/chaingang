@@ -20,23 +20,36 @@
             top: 0;
             right: 15px;
             bottom: 0;
-            left: 15px;
+            left: 48px;
             background: rgba(0, 0, 0, 0.2);
         }
     }
 
     .button {
-        background: black !important;
+        background: black;
         padding: 5px 20px;
         float: right;
+        border: solid black 2px;
         font-weight: 900;
         font-size: 16px;
         border-radius: 4px;
         min-height: 40px;
 
+
         i {
             margin-left: 15px;
             font-size: 14px;
+        }
+
+
+    }
+
+    .btn-black {
+        transition: .5s ease-in-out;
+
+        &:hover {
+            background: none;
+            color: black;
         }
     }
 
