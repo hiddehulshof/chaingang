@@ -8,17 +8,19 @@
     }
 
     &__photo {
-        background-image: url("../images/headermain.jpg");
+        background-image: url("../images/about-us.jpg");
         background-size: cover;
+        width: 100%;
+        height: 100%;
 
         &:after {
             z-index: 0 !important;
             content: '';
             position: absolute;
             top: 0;
-            right: 0;
+            right: 15px;
             bottom: 0;
-            left: 0;
+            left: 15px;
             background: rgba(0, 0, 0, 0.2);
         }
     }

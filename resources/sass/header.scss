@@ -85,7 +85,7 @@ body {
                 margin-bottom: 5px;
                 transition: .3s ease;
             }
-            
+
             &-line:nth-child(2) {
                 .opened & {
                     opacity: 0;
@@ -148,7 +148,8 @@ body {
 }
 
 .header {
-    background-image: url("../images/headermain.jpg");
+    background-image: url("../images/header.jpeg");
+    background-position: bottom;
     background-size: cover;
     position: relative;
     color: white;
