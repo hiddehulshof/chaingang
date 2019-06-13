@@ -18,9 +18,7 @@
 
 Route::resource("/", "homepageController");
 
-Route::get('/admin', function () {
-    return view('admin/admin');
-});
+
 Route::get('/contact', function () {
     return view('contact');
 });
@@ -49,13 +47,24 @@ Route::post("products", "fietsenController@filter");
 
 Route::resource("admin", "gebruikerController");
 
+
 Route::get('cart', 'fietsenController@cart');
 
 Route::patch('update-cart', 'fietsenController@update');
 
 Route::delete('remove-from-cart', 'fietsenController@remove');
 
+Route::get("admin/products/overview", "gebruikerController@products");
+
+Route::get("admin/users/overview", "gebruikerController@users");
+
+
 Route::get('admin/products/{id}', 'gebruikerController@editproduct');
+
+Route::get('admin/users/{id}', 'gebruikerController@edituser');
+
+Route::get('admin/users/delete/{id}', 'gebruikerController@deleteuser');
+Route::get('admin/products/delete/{id}', 'gebruikerController@deleteproduct');
 
 Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 
