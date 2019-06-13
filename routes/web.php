@@ -59,4 +59,6 @@ Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 
 Route::resource("newsletter", "nieuwsbriefController");
 
+Route::post("register", "klantenController@store");
+
 
