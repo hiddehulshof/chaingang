@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Bike;
+use App\BikeCatagory;
 use App\Gebruiker;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,10 @@ class gebruikerController extends Controller
      */
     public function index()
     {
-        //
+       $bikes = Bike::all();
+
+        return view("admin.admin", compact('bikes'));
+
     }
 
     /**
@@ -44,9 +49,20 @@ class gebruikerController extends Controller
      * @param  \App\Gebruiker  $gebruiker
      * @return \Illuminate\Http\Response
      */
-    public function show(Gebruiker $gebruiker)
+    public function show($id)
     {
-        //
+
+
+    }
+
+    public function editproduct($id)
+    {
+        $bike = Bike::find($id);
+        $categorySelected = BikeCatagory::find($bike->typeId);
+        $categories = BikeCatagory::all();
+
+        return view("admin.products.edit", compact('bike','categories', 'categorySelected' ));
+
     }
 
     /**

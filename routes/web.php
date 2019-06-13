@@ -47,12 +47,15 @@ Route::post("/login", "klantenController@login");
 Route::resource("products", "fietsenController");
 Route::post("products", "fietsenController@filter");
 
+Route::resource("admin", "gebruikerController");
+
 Route::get('cart', 'fietsenController@cart');
 
 Route::patch('update-cart', 'fietsenController@update');
 
 Route::delete('remove-from-cart', 'fietsenController@remove');
 
+Route::get('admin/products/{id}', 'gebruikerController@editproduct');
 
 Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 
