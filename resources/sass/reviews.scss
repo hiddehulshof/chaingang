@@ -46,9 +46,10 @@
         p:last-child {
             font-style: normal;
             font-weight:900;
+            margin: 0;
 
             &:before, &:after {
-                content:'';
+                content: none;
             }
         }
     }
