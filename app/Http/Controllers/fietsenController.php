@@ -208,9 +208,10 @@ class fietsenController extends Controller
             $cart = [
                 $id => [
                     "name" => $product->naam,
-                    "quantity" => 1,
+                    "quantity" => $product->id,
                     "price" => $product->prijs,
                     "photo" => $product->photo
+
                 ]
             ];
 
@@ -233,7 +234,7 @@ class fietsenController extends Controller
         // if item not exist in cart then add to cart with quantity = 1
         $cart[$id] = [
             "name" => $product->naam,
-            "quantity" => 1,
+            "quantity" => $product->id,
             "price" => $product->prijs,
             "photo" => $product->photo
         ];

@@ -22,14 +22,14 @@
         @if(session('cart'))
             @foreach(session('cart') as $id => $details)
 
-                <?php $total += $details['price'] * $details['quantity'] ?>
+                <?php $total += $details['price'] ?>
 
                 <tr>
                     <td data-th="Product">
                         <div class="row">
                             <div class="col-sm-3 hidden-xs"><img src="{{ $details['photo'] }}" width="100" height="100" class="img-responsive"/></div>
                             <div class="col-sm-9">
-                                <h4 class="nomargin">{{ $details['name'] }}</h4>
+                                <h4 class="nomargin"><a href="/products/{{$details['quantity']}}">{{ $details['name'] }}</a></h4>
                             </div>
                         </div>
                     </td>

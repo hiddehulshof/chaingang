@@ -54,7 +54,11 @@
                                     </h3></a></td>
                         </tr>
                     </table>
+                    @if(session('cart'))
+                        @foreach(session('cart') as $id => $details)
                     <a href="{{ url('add-to-cart/'.$bike->id) }}" class="button">Bestel</a>
+                        @endforeach
+                    @endif
                 </div>
                 <div class="col-12 py-5">
                     <h3 class="article__heading py-3">Specificaties</h3>

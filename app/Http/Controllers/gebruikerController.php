@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Gebruiker;
+use App\Bike;
+use App\BikeCatagory;
+use App\User;
 use Illuminate\Http\Request;
 
 class gebruikerController extends Controller
@@ -14,9 +16,25 @@ class gebruikerController extends Controller
      */
     public function index()
     {
-        //
-    }
+       $bikes = BikeCatagory::all();
 
+        return view("admin.admin", compact('bikes'));
+
+    }
+    public function products()
+    {
+        $bikes = Bike::all();
+
+        return view("admin.products", compact('bikes'));
+
+    }
+    public function users()
+    {
+        $users = User::all();
+
+        return view("admin.users", compact('users'));
+
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -44,9 +62,43 @@ class gebruikerController extends Controller
      * @param  \App\Gebruiker  $gebruiker
      * @return \Illuminate\Http\Response
      */
-    public function show(Gebruiker $gebruiker)
+    public function show($id)
     {
-        //
+
+
+    }
+
+    public function editproduct($id)
+    {
+        $bike = Bike::find($id);
+        $categorySelected = BikeCatagory::find($bike->typeId);
+        $categories = BikeCatagory::all();
+
+        return view("admin.products.edit", compact('bike','categories', 'categorySelected' ));
+
+    }
+    public function edituser($id)
+{
+    $user = User::find($id);
+
+    return view("admin.users.edit", compact('user'));
+
+}
+    public function deleteproduct($id)
+    {
+        $bike = Bike::find($id);
+
+        $bike ->delete();
+        return redirect("admin/products/overview");
+
+    }
+    public function deleteuser($id)
+    {
+        $user = User::find($id);
+
+        $user->delete();
+        return redirect("admin/users/overview");
+
     }
 
     /**
