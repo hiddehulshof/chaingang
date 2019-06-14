@@ -21,9 +21,12 @@
 
         @if(session('cart'))
             @foreach(session('cart') as $id => $details)
+                @if($details['aanbiedingsprijs'] > 0)
+                    <?php $total += $details['aanbiedingsprijs'] ?>
 
+           @else
                 <?php $total += $details['price'] ?>
-
+                @endif
                 <tr>
                     <td data-th="Product">
                         <div class="row">
@@ -33,8 +36,11 @@
                             </div>
                         </div>
                     </td>
+                    @if($details['aanbiedingsprijs'] > 0)
+                        <td data-th="Price">&euro;{{ $details['aanbiedingsprijs'] }}</td>
+                        @else
                     <td data-th="Price">&euro;{{ $details['price'] }}</td>
-
+                    @endif
 
                     <td class="actions" data-th="">
                         <button class="btn btn-danger btn-sm remove-from-cart" data-id="{{ $id }}">Verwijder uit winkelwagen</button>
