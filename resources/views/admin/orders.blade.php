@@ -10,24 +10,30 @@
             <table>
                 <thead>
                 <tr>
-                    <th>Naam</th>
-                    <th>Prijs</th>
-                    <th>Omschrijving</th>
+                    <th>Ordernummer</th>
+                    <th>Klant adres</th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
                     <th></th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($bikes as $bike)
+                @foreach($orders as $order)
 
 
                     <tr class="font-weight-bolder">
-                        <td> {{$bike->naam}}</td>
-                        <td> &euro;{{$bike->prijs}}</td>
-                        <td> {{$bike->omschrijving}}</td>
+                        <td> {{$order->id}}</td>
+
+                        <td> {{$order->plaats}}</td>
+                        <td> {{$order->postcode}}</td>
+                        <td> {{$order->straat}}</td>
+                        <td> {{$order->huisnr}}</td>
                         <td>
                             <div class="buttons">
-                                <a  href="{{$bike->id}}" ><button class="button"><i class="fa fa-edit"></i></button></a>
-                                <a  href="delete/{{$bike->id}}"><button onclick="return confirm('Weet je het zeker?')" class="button button__delete"><i class="fa fa-trash"></i></button></a>
+                                <a  href="{{$order->id}}" ><button class="button"><i class="fa fa-edit"></i></button></a>
+                                <a  href="delete/{{$order->id}}"><button onclick="return confirm('Weet je het zeker?')" class="button button__delete"><i class="fa fa-trash"></i></button></a>
                             </div>
                         </td>
                     </tr>

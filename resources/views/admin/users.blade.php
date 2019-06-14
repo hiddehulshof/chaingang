@@ -3,6 +3,9 @@
 
     <div class="admin-article">
         <div class="container">
+            <div class="article">
+                <a href="/admin"><button class="button float-left"><i class="fas fa-arrow-left pr-2 ml-0"></i>Terug</button></a>
+            </div>
             <table>
                 <thead>
                 <tr>
@@ -23,14 +26,14 @@
 
 
                     <tr class="font-weight-bolder">
-                        <td> {{$user->voornaam}}</td>
-                        <td> {{$user->tussenvoegsel}}</td>
-                        <td> {{$user->achternaam}}</td>
+                        <td> {{$user->Voornaam}}</td>
+                        <td> {{$user->Tussenvoegsel}}</td>
+                        <td> {{$user->Achternaam}}</td>
 
 
-                        <td> {{$user->email}}</td>
-                        <td> {{$user->gebruikersnaam}}</td>
-                        <td> @if($user->admin == 1)
+                        <td> {{$user->Email}}</td>
+                        <td> {{$user->Gebruikersnaam}}</td>
+                        <td> @if($user->isAdmin == 1)
                                  Administrator
                                  @else
                                  Gebruiker
@@ -41,7 +44,7 @@
                             <div class="buttons">
                                 <a  href="{{$user->id}}"><button class="button"><i class="fa fa-edit"></i></button></a>
 
-                                <a  href="delete/{{$user->id}}"><button class="button button__delete"><i class="fa fa-trash"></i></button>
+                                <a  href="delete/{{$user->id}}"><button class="button button__delete"><i class="fa fa-trash"></i></button></a>
                             </div>
                         </td>
                     </tr>

@@ -40,3 +40,17 @@ body{
 .maps{
   height:450px;
 }
+.pagination
+{
+  justify-content: center;
+}
+.page-item.active .page-link {
+  z-index: 1;
+  color: #fff!important;
+  background-color: #000000!important;
+  border-color: #e3fff5!important;
+}
+.page-link
+{
+  color: black!important;
+}

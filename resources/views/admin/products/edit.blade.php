@@ -5,25 +5,31 @@
       <h1>{{$bike->naam}}</h1>
 
 
-    <form method="post" class="w-100">
+    <form method="post" action="edit/{{$bike->id}}}" class="w-100">
+   @csrf
 
 
-            <div class="row">
+        <div class="row">
                 <div class="col-12 form-group">
                     <label  class="contact__label" for="InputEmail"> Naam</label>
-                    <input type="email" class="form-control" name="e-mail" id="InputEmail" aria-describedby="email"
+                    <input type="text" class="form-control" name="naam" id="InputEmail" aria-describedby="email"
                            value="{{$bike->naam}}" required>
                 </div>
                 <div class="col-12 form-group">
                     <label  class="contact__label" for="InputEmail"> Prijs:</label>
-                    <input type="email" class="form-control" name="e-mail" id="InputEmail" aria-describedby="email"
+                    <input type="text" class="form-control" name="prijs" id="InputEmail" aria-describedby="email"
                            value="{{$bike->prijs}}">
                 </div>
                 <div class="col-12 form-group">
                     <label  class="contact__label" for="InputEmail"> Aanbiedingsprijs:</label>
-                    <input type="email" class="form-control" name="e-mail" id="InputEmail" aria-describedby="email"
-                           value="{{$bike->aanbiedingsprijs}}" required>
+                    <input type="text" class="form-control" name="aanbieding" id="InputEmail" aria-describedby="email"
+                           value="{{$bike->aanbiedingsprijs}}" >
                 </div>
+            <div class="col-12 form-group">
+                <label  class="contact__label" for="InputEmail"> Aanbiedingsprijs:</label>
+                <input type="text" class="form-control" name="merk" id="InputEmail" aria-describedby="email"
+                       value="{{$bike->merk}}" >
+            </div>
 
                 <div class="col-12 form-group">
                     <label class="contact__label" for="InputFirstname">Omschrijving</label>
@@ -32,11 +38,11 @@
                 </div>
                 <div class="col-12 form-group">
                     <label class="contact__label" for="InputLastname">Versnellingen</label>
-                    <input type="number" class="form-control" name="phonenumber" id="InputLastname"
+                    <input type="number" class="form-control" name="versnellingen" id="InputLastname"
                            aria-describedby="Achternaam" value="{{$bike->versnellingen}}">
                 </div>
                 <div class="col-12 form-group">
-                    <select class="form-control" name="ontvanger">
+                    <select class="form-control" name="type">
                         <option value="{{$categorySelected->id}}">{{ $categorySelected->Naam }}</option>
 
                     @foreach($categories as $category)
@@ -45,6 +51,12 @@
                             @endif
                         @endforeach
                     </select>
+                </div>
+
+                <div class="col-12 form-group">
+
+                    <button type="submit" class="button is-link">Opslaan</button>
+
                 </div>
             </div>
     </form>

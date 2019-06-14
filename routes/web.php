@@ -49,6 +49,9 @@ Route::resource("admin", "gebruikerController");
 
 
 Route::get('cart', 'fietsenController@cart');
+Route::get('cart/betaal', 'fietsenController@placeorder');
+
+
 
 Route::patch('update-cart', 'fietsenController@update');
 
@@ -58,8 +61,18 @@ Route::get("admin/products/overview", "gebruikerController@products");
 
 Route::get("admin/users/overview", "gebruikerController@users");
 
+Route::get("admin/orders/overview", "gebruikerController@orders");
+
+Route::get("admin/reviews/overview", "gebruikerController@reviews");
+
+
+Route::get('admin/products/create', 'gebruikerController@createproduct');
 
 Route::get('admin/products/{id}', 'gebruikerController@editproduct');
+
+Route::get('admin/orders/{id}', 'gebruikerController@showorder');
+
+Route::get('admin/reviews/{id}', 'gebruikerController@editreview');
 
 Route::get('admin/users/{id}', 'gebruikerController@edituser');
 
@@ -71,3 +84,5 @@ Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 Route::resource("newsletter", "nieuwsbriefController");
 
 
+Route::post("admin/products/create", 'gebruikerController@storeproduct');
+Route::post("admin/products/edit/{id}", 'gebruikerController@editexistingproduct');

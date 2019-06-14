@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Bike;
 use App\BikeCatagory;
+use App\Customer;
+use App\Order;
+use App\OrderItem;
+use App\Review;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -35,6 +39,33 @@ class gebruikerController extends Controller
         return view("admin.users", compact('users'));
 
     }
+    public function orders()
+    {
+        $orders = Order::all();
+        return view("admin.orders", compact('orders'));
+
+    }
+    public function reviews()
+    {
+        $reviews = Review::all();
+        return view("admin.reviews", compact('reviews'));
+
+    }
+    public function showorder($id)
+    {
+        $order = Order::find($id);
+        $orderitems = OrderItem::query()->where('BestellingID', '=', $order->id)->get()->all();
+
+//        $orderitems = OrderItem::where($id);
+        $customer = User::find($order->klantID);
+
+        $bikes = Bike::all();;
+
+        return view("admin.order.show", compact('bikes','customer','order' , 'orderitems'));
+
+    }
+
+
     /**
      * Show the form for creating a new resource.
      *
@@ -51,10 +82,31 @@ class gebruikerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+
     }
+    public function storeproduct()
+    {
+      $bike = new Bike();
+
+
+      $bike->naam = request('naam');
+      $bike->merk =  request('merk');
+      $bike->typeId = request('type');
+        $bike->prijs = request('prijs');
+        $bike->aanbiedingsprijs = request('aanbieding');
+        $bike->omschrijving = request('omschrijving');
+        $bike->additionDate = now();
+        $bike->versnellingen = request('versnellingen');
+        $bike->kleur = 'Geel';
+        $bike->bagagedrager = 1;
+        $bike->forSale = 1;
+
+        $bike->save();
+        return redirect("admin/products/overview");
+    }
+
 
     /**
      * Display the specified resource.
@@ -67,7 +119,13 @@ class gebruikerController extends Controller
 
 
     }
+    public function createproduct()
+    {
+        $categories = BikeCatagory::all();
 
+        return view("admin.products.create", compact('categories'));
+
+    }
     public function editproduct($id)
     {
         $bike = Bike::find($id);
@@ -75,6 +133,37 @@ class gebruikerController extends Controller
         $categories = BikeCatagory::all();
 
         return view("admin.products.edit", compact('bike','categories', 'categorySelected' ));
+
+    }
+    public function editreview($id)
+    {
+        $review = Review::find($id);
+        $customer = User::find($review->KlantID);
+
+
+
+        return view("admin.reviews.edit", compact('review','customer' ));
+
+    }
+
+    public function editexistingproduct($id)
+    {
+        $bike = Bike::find($id);
+        $bike->naam = request('naam');
+        $bike->merk =  request('merk');
+        $bike->typeId = request('type');
+        $bike->prijs = request('prijs');
+        $bike->aanbiedingsprijs = request('aanbieding');
+        $bike->omschrijving = request('omschrijving');
+        $bike->additionDate = now();
+        $bike->versnellingen = request('versnellingen');
+        $bike->kleur = 'Geel';
+        $bike->bagagedrager = 1;
+        $bike->forSale = 1;
+
+        $bike->save();
+
+        return redirect("admin/products/overview");
 
     }
     public function edituser($id)

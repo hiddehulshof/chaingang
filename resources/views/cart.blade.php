@@ -52,6 +52,8 @@
             <td><a href="{{ url('/') }}" class="button"><i class="fa fa-angle-left"></i> verder winkelen</a></td>
             <td colspan="2" class="hidden-xs"></td>
             <td class="hidden-xs text-center"><strong>Totaal &euro;{{ $total }}</strong></td>
+            <td><a href="cart/betaal" class="button"> Betaal</a></td>
+
         </tr>
         </tfoot>
     </table>
