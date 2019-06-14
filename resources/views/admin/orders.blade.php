@@ -42,9 +42,8 @@
 
                 </tbody>
             </table>
-            <div class="article">
-                <a href="create"><button class="button"> Voeg product toe</button></a>
-            </div>
+            {{$orders->links()}}
+
         </div>
     </div>
 

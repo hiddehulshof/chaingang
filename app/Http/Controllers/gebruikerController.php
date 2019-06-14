@@ -27,27 +27,27 @@ class gebruikerController extends Controller
     }
     public function products()
     {
-        $bikes = Bike::all();
+        $bikes = Bike::paginate(6);
 
         return view("admin.products", compact('bikes'));
 
     }
     public function users()
     {
-        $users = User::all();
+        $users = User::paginate(6);
 
         return view("admin.users", compact('users'));
 
     }
     public function orders()
     {
-        $orders = Order::all();
+        $orders = Order::paginate(6);
         return view("admin.orders", compact('orders'));
 
     }
     public function reviews()
     {
-        $reviews = Review::all();
+        $reviews = Review::paginate(6);
         return view("admin.reviews", compact('reviews'));
 
     }
@@ -138,7 +138,7 @@ class gebruikerController extends Controller
     public function editreview($id)
     {
         $review = Review::find($id);
-        $customer = User::find($review->KlantID);
+        $customer = User::find($review->lantID);
 
 
 

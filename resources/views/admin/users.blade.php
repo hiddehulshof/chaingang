@@ -53,6 +53,7 @@
 
                 </tbody>
             </table>
+            {{$users->links()}}
             <div class="article">
                 <button class="button"> Voeg gebruiker toe</button>
             </div>

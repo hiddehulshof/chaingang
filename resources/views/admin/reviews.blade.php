@@ -33,6 +33,7 @@
 
 
                 </tbody>
+                {{$reviews->links()}}
             </table>
 
         </div>

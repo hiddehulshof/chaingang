@@ -34,8 +34,11 @@
                 @endforeach
 
 
+
                 </tbody>
+
             </table>
+            {{$bikes->links()}}
             <div class="article">
                 <a href="create"><button class="button"> Voeg product toe</button></a>
             </div>
