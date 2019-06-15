@@ -37,7 +37,7 @@
                         </div>
                     </td>
                     @if($details['aanbiedingsprijs'] > 0)
-                        <td data-th="Price">&euro;{{ $details['aanbiedingsprijs'] }}</td>
+                        <td data-th="Price">     <span style="text-decoration: line-through red">&euro;{{ $details['price'] }}</span> &euro;{{ $details['aanbiedingsprijs'] }}</td>
                         @else
                     <td data-th="Price">&euro;{{ $details['price'] }}</td>
                     @endif

@@ -6,6 +6,7 @@
             <div class="article">
                 <a href="/admin"><button class="button float-left"><i class="fas fa-arrow-left pr-2 ml-0"></i>Terug</button></a>
             </div>
+
     <table>
         <thead>
         <tr>
@@ -56,6 +57,7 @@
 
         </tr>
     </table>
+
         </div>
     </div>
 @endsection

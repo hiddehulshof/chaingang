@@ -20,9 +20,12 @@ class gebruikerController extends Controller
      */
     public function index()
     {
-       $bikes = BikeCatagory::all();
+       $bikes = Bike::all();
+        $users = User::all();
+        $reviews = Review::all();
+        $orders = Order::all();
 
-        return view("admin.admin", compact('bikes'));
+        return view("admin.admin", compact('bikes', 'users', 'reviews', 'orders'));
 
     }
     public function products()
@@ -138,7 +141,7 @@ class gebruikerController extends Controller
     public function editreview($id)
     {
         $review = Review::find($id);
-        $customer = User::find($review->lantID);
+        $customer = User::find($review->KlantID);
 
 
 
