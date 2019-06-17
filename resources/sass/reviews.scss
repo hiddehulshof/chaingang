@@ -26,10 +26,11 @@
 
 .review-list {
     padding: 100px 0;
+
     .single-review {
         box-shadow: 0 0 5px rgba(49, 49, 49, 0.1);
         padding: 50px;
-        margin-bottom:40px;
+        margin-bottom: 40px;
 
         h2 {
             margin-bottom: 20px;
@@ -38,24 +39,26 @@
         p {
             font-style: italic;
 
-            &:before, &:after {
-                content:'"';
+            &:before,
+            &:after {
+                content: '"';
             }
         }
 
         p:last-child {
             font-style: normal;
-            font-weight:900;
+            font-weight: 900;
             margin: 0;
 
-            &:before, &:after {
+            &:before,
+            &:after {
                 content: none;
             }
         }
     }
 
     &--heading {
-        padding:75px 0 125px;
+        padding: 75px 0 125px;
         display: table;
         margin: 0 auto;
 
