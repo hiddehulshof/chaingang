@@ -31,10 +31,6 @@ Vue.component(
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app'
-});
-
 $(window).scroll(function() {
     var scroll = $(window).scrollTop();
     if (scroll <= 0) {
