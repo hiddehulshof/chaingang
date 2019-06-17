@@ -19,7 +19,7 @@ class Reviews extends Migration
             $table->string("Titel", 100);
             $table->text("Text");
 
-            $table->foreign('KlantID')->references('id')->on('Customers')->onDelete('cascade');
+            $table->foreign('KlantID')->references('id')->on('Users')->onDelete('cascade');
         });
     }
 
