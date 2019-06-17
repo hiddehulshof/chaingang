@@ -17,7 +17,8 @@ class fietsenController extends Controller
      */
     public function index()
     {
-        $bikes = Bike::paginate(6);
+        $collection =  Bike::where('forSale', '=', 1);
+        $bikes = $collection->paginate(6);
         $categories = BikeCatagory::all();
         $brands = $bikes->pluck('merk')->unique();
 
@@ -36,7 +37,7 @@ class fietsenController extends Controller
     }
     public function filter()
     {
-        $collection = Bike::all();
+        $collection = Bike::where('forSale', '=', 1);
         $brands = $collection->pluck('merk')->unique();
 
         if(request('search')!= "Zoek")
