@@ -45,6 +45,10 @@ Route::get('/reviews', function() {
     return view('reviews');
 });
 
+Route::get('/review-form', function() {
+    return view('review-form');
+});
+
 Route::post("/login", "klantenController@login");
 Route::resource("products", "fietsenController");
 Route::post("products", "fietsenController@filter");
