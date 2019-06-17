@@ -92,3 +92,7 @@ Route::post("register", "klantenController@store");
 
 Route::post("admin/products/create", 'gebruikerController@storeproduct');
 Route::post("admin/products/edit/{id}", 'gebruikerController@editexistingproduct');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

@@ -24,7 +24,7 @@ class Bestellingen extends Migration
             $table->string("huisnr", 5);
             $table->string("plaats", 30);
 
-            $table->foreign('klantID')->references('id')->on('Customers')->onDelete('cascade');
+            $table->foreign('klantID')->references('id')->on('Users')->onDelete('cascade');
             $table->foreign('StatusID')->references('id')->on('OrderStatus')->onDelete('cascade');
         });
     }
