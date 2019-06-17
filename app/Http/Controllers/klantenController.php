@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Customer;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -37,7 +38,7 @@ class klantenController extends Controller
      */
     public function store()
     {
-        $customer = new Customer();
+        $customer = new User();
         $customer->Voornaam = request("firstname");
         $customer->Tussenvoegsel = request("firstname");
         $customer->Achternaam = request("lastname");
@@ -48,7 +49,9 @@ class klantenController extends Controller
         $customer->Huisnr = request("housenumber");
         $customer->Plaats = request("city");
         $customer->TelefoonNR = request("telephone");
-
+        $customer->isEmployee = 0;
+        $customer->Gebruikersnaam = request("email");
+        $customer->isAdmin = 0;
 
         $customer->save();
 
@@ -61,7 +64,7 @@ class klantenController extends Controller
      * @param  \App\Klanten  $klanten
      * @return \Illuminate\Http\Response
      */
-    public function show(Customer $customer)
+    public function show(User $customer)
     {
         //
     }
@@ -72,7 +75,7 @@ class klantenController extends Controller
      * @param  \App\Klanten  $klanten
      * @return \Illuminate\Http\Response
      */
-    public function edit(Customer $customer)
+    public function edit(User $customer)
     {
         //
     }
@@ -84,7 +87,7 @@ class klantenController extends Controller
      * @param  \App\Klanten  $klanten
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Customer $customer)
+    public function update(Request $request, User $customer)
     {
         //
     }
@@ -95,7 +98,7 @@ class klantenController extends Controller
      * @param  \App\Klanten  $klanten
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Customer $customer)
+    public function destroy(User $customer)
     {
         //
     }
