@@ -15,7 +15,8 @@ class homepageController extends Controller
      */
     public function index()
     {
-        $bikes = Bike::all();
+        $bikes = Bike::all()->sortByDesc('additionDate');
+  ;
         return view("welcome", compact('bikes'));
     }
 

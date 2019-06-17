@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bike;
+use App\BaseCollection;
 use App\BikeCatagory;
 use App\Product;
 use Illuminate\Http\Request;
@@ -16,7 +17,8 @@ class fietsenController extends Controller
      */
     public function index()
     {
-        $bikes = Bike::all();
+        $collection =  Bike::where('forSale', '=', 1);
+        $bikes = $collection->paginate(6);
         $categories = BikeCatagory::all();
         $brands = $bikes->pluck('merk')->unique();
 
@@ -35,15 +37,15 @@ class fietsenController extends Controller
     }
     public function filter()
     {
-        $collection = Bike::all();
+        $collection = Bike::where('forSale', '=', 1);
+        $brands = $collection->pluck('merk')->unique();
 
         if(request('search')!= "Zoek")
         {
-            $collection = Bike::query()->where('naam', 'LIKE', '%'.request('search').'%')->get();
+            $collection = Bike::where('naam', 'LIKE', '%'.request('search').'%')->get();
 
         }
         $categories = BikeCatagory::all();
-        $brands = $collection->pluck('merk')->unique();
 
         if (request('category')!= 0) {                                      //if statements zorgen dat de resultaten een aantal keer gefilterd wordt
             $filtered = $collection->filter(function ($value, $key) {
@@ -79,14 +81,16 @@ class fietsenController extends Controller
 
 
 
-        $bikes = $filteredGears;
+
+        $result = $filteredGears;
         if (request('pricefilter')== 1 ) {
-            $bikes = $bikes->sortBy('prijs');
+            $result = $result->sortBy('prijs');
         }
         elseif (request('pricefilter')== 2 ) {
-            $bikes = $bikes->sortByDesc('prijs');
+            $result = $result->sortByDesc('prijs');
         }
 
+        $bikes= $result->paginate(6);
 
 
 
@@ -210,7 +214,8 @@ class fietsenController extends Controller
                     "name" => $product->naam,
                     "quantity" => $product->id,
                     "price" => $product->prijs,
-                    "photo" => $product->photo
+                    "photo" => $product->aanbiedingsprijs,
+                    "aanbiedingsprijs" => $product->aanbiedingsprijs
 
                 ]
             ];
@@ -221,26 +226,26 @@ class fietsenController extends Controller
         }
 
         // if cart not empty then check if this product exist then increment quantity
-        if(isset($cart[$id])) {
 
-            $cart[$id]['quantity']++;
-
-            session()->put('cart', $cart);
-
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
-
-        }
 
         // if item not exist in cart then add to cart with quantity = 1
         $cart[$id] = [
             "name" => $product->naam,
             "quantity" => $product->id,
             "price" => $product->prijs,
-            "photo" => $product->photo
+            "photo" => $product->aandbiedingsprijs,
+            "aanbiedingsprijs" => $product->aanbiedingsprijs
         ];
 
         session()->put('cart', $cart);
 
         return redirect()->back()->with('success', 'Product added to cart successfully!');
+    }
+    public function placeorder()
+    {
+        $carts = session()->get('cart');
+        foreach ($carts as $cart)
+
+        dd($cart["quantity"]);
     }
 }

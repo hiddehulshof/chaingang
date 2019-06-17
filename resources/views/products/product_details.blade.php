@@ -54,6 +54,8 @@
                                     </h3></a></td>
                         </tr>
                     </table>
+
+
                     <a href="{{ url('add-to-cart/'.$bike->id) }}" class="button">Bestel</a>
                 </div>
                 <div class="col-12 py-5">

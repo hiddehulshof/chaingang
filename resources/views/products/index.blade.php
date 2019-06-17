@@ -72,6 +72,7 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </form>
             </div>
         </div>
@@ -111,7 +112,11 @@
                     </div>
                 @endif
             @endforeach
+
         </div>
+
+        {{ $bikes->links() }}
     </div>
+
     </div>
 @endsection
