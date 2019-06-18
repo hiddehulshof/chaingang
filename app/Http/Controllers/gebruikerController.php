@@ -10,6 +10,7 @@ use App\OrderItem;
 use App\Review;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class gebruikerController extends Controller
 {
@@ -18,6 +19,16 @@ class gebruikerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function handleAllowed($else)
+    {
+        if(!Auth::check() || !Auth::user()->isEmployee)
+        {
+            return redirect("/login");
+        }
+
+        return $else;
+    }
+
     public function index()
     {
        $bikes = Bike::all();
@@ -25,33 +36,41 @@ class gebruikerController extends Controller
         $reviews = Review::all();
         $orders = Order::all();
 
-        return view("admin.admin", compact('bikes', 'users', 'reviews', 'orders'));
+        return $this->handleAllowed(view("admin.admin", compact('bikes', 'users', 'reviews', 'orders')));
 
+        //if(Auth::check() && Auth::user()->isEmployee)
+        //{
+            //return view("admin.admin", compact('bikes', 'users', 'reviews', 'orders'));
+        //}
+
+        //return redirect("/login");
     }
     public function products()
     {
         $bikes = Bike::paginate(6);
 
-        return view("admin.products", compact('bikes'));
+        return $this->handleAllowed(view("admin.products", compact('bikes')));
+
+        //return view("admin.products", compact('bikes'));
 
     }
     public function users()
     {
         $users = User::paginate(6);
 
-        return view("admin.users", compact('users'));
+        return $this->handleAllowed(view("admin.users", compact('users')));
 
     }
     public function orders()
     {
         $orders = Order::paginate(6);
-        return view("admin.orders", compact('orders'));
+        return $this->handleAllowed(view("admin.orders", compact('orders')));
 
     }
     public function reviews()
     {
         $reviews = Review::paginate(6);
-        return view("admin.reviews", compact('reviews'));
+        return $this->handleAllowed(view("admin.reviews", compact('reviews')));
 
     }
     public function showorder($id)
@@ -64,7 +83,7 @@ class gebruikerController extends Controller
 
         $bikes = Bike::all();;
 
-        return view("admin.order.show", compact('bikes','customer','order' , 'orderitems'));
+        return $this->handleAllowed(view("admin.order.show", compact('bikes','customer','order' , 'orderitems')));
 
     }
 
@@ -107,7 +126,7 @@ class gebruikerController extends Controller
         $bike->forSale = 1;
 
         $bike->save();
-        return redirect("admin/products/overview");
+        return $this->handleAllowed(redirect("admin/products/overview"));
     }
 
 
@@ -126,7 +145,7 @@ class gebruikerController extends Controller
     {
         $categories = BikeCatagory::all();
 
-        return view("admin.products.create", compact('categories'));
+        return $this->handleAllowed(view("admin.products.create", compact('categories')));
 
     }
     public function editproduct($id)
@@ -135,7 +154,7 @@ class gebruikerController extends Controller
         $categorySelected = BikeCatagory::find($bike->typeId);
         $categories = BikeCatagory::all();
 
-        return view("admin.products.edit", compact('bike','categories', 'categorySelected' ));
+        return $this->handleAllowed(view("admin.products.edit", compact('bike','categories', 'categorySelected' )));
 
     }
     public function editreview($id)
@@ -145,7 +164,7 @@ class gebruikerController extends Controller
 
 
 
-        return view("admin.reviews.edit", compact('review','customer' ));
+        return $this->handleAllowed(view("admin.reviews.edit", compact('review','customer' )));
 
     }
 
@@ -166,14 +185,14 @@ class gebruikerController extends Controller
 
         $bike->save();
 
-        return redirect("admin/products/overview");
+        return $this->handleAllowed(redirect("admin/products/overview"));
 
     }
     public function edituser($id)
 {
     $user = User::find($id);
 
-    return view("admin.users.edit", compact('user'));
+    return $this->handleAllowed(view("admin.users.edit", compact('user')));
 
 }
     public function deleteproduct($id)
@@ -181,7 +200,7 @@ class gebruikerController extends Controller
         $bike = Bike::find($id);
 
         $bike ->delete();
-        return redirect("admin/products/overview");
+        return $this->handleAllowed(redirect("admin/products/overview"));
 
     }
     public function deleteuser($id)
@@ -189,7 +208,7 @@ class gebruikerController extends Controller
         $user = User::find($id);
 
         $user->delete();
-        return redirect("admin/users/overview");
+        return $this->handleAllowed(redirect("admin/users/overview"));
 
     }
 

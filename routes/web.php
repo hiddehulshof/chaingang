@@ -33,9 +33,9 @@ Route::get('/over-ons', function () {
 Route::get('/product', function () {
     return view('products/product_details');
 });
-Route::get('/profile', function () {
-    return view('customers/profile');
-});
+//Route::get('/profile', function () {
+//    return view('customers/profile');
+//});
 
 Route::get('/register', function () {
     return view('register');
@@ -45,7 +45,10 @@ Route::get('/reviews', function() {
     return view('reviews');
 });
 
+
+Route::get('/profile', "klantenController@show");
 Route::post("/login", "klantenController@login");
+Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::resource("products", "fietsenController");
 Route::post("products", "fietsenController@filter");
 

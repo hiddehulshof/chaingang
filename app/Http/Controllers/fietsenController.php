@@ -7,6 +7,7 @@ use App\BaseCollection;
 use App\BikeCatagory;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class fietsenController extends Controller
 {
@@ -243,6 +244,13 @@ class fietsenController extends Controller
     }
     public function placeorder()
     {
+        if (!Auth::check())
+        {
+            $location = "/cart";
+            return redirect("/login", compact("location"));
+        }
+
+
         $carts = session()->get('cart');
         foreach ($carts as $cart)
 
