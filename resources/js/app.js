@@ -20,7 +20,10 @@ window.Vue = require('vue');
 // const files = require.context('./', true, /\.vue$/i);
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+Vue.component(
+    'example-component',
+    require('./components/ExampleComponent.vue').default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -28,28 +31,24 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-});
-
 $(window).scroll(function() {
     var scroll = $(window).scrollTop();
     if (scroll <= 0) {
-        $(".navigation").removeClass("header--white");
+        $('.navigation').removeClass('header--white');
     } else {
         $('.navigation').addClass('header--white');
     }
 });
 
-$(document).on("click", ".scroll-icon", function() {
-    $('html, body').animate({
-        scrollTop: $(".article").offset().top - 68
-    }, 1200);
+$(document).on('click', '.scroll-icon', function() {
+    $('html, body').animate(
+        { scrollTop: $('.article').offset().top - 68 },
+        1200
+    );
 });
 
-$(document).on("click", ".navigation__wrapper-hamburger", function () {
+$(document).on('click', '.navigation__wrapper-hamburger', function() {
     $('.navigation__dropdown').toggleClass('active');
     $('.navigation').addClass('header--white');
     $(this).toggleClass('opened');
-
 });

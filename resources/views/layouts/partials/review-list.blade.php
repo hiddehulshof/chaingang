@@ -1,4 +1,8 @@
 <div class="review-list container">
+    <div class="review-list--heading">
+        <h2>Ook uw ervaring delen?</h2>
+        <a href="review-form" class="btn-black">Schrijf een review</a>
+    </div>
     <div class="row">
         <?php for ($i = 0; $i < 12; $i++): ?>
             <div class="col-md-4">

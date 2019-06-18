@@ -60,13 +60,13 @@
                     </div>
                     <div class="row w-100 mb-4">
                         <div class="col d-flex">
-                            <div class="field w-50">
+                            <div class="field w-25">
                                 <div class="control">
                                     <input type="text" class="form-control" name="search" aria-describedby="search" placeholder="Zoek">
                                 </div>
                             </div>
 
-                            <div class="field w-50">
+                            <div class="field w-25">
                                 <div class="control">
                                     <button type="submit" class="button is-link w-100 m-0">Toepassen <i class="fas fa-search"></i></button>
                                 </div>
@@ -76,43 +76,45 @@
                 </form>
             </div>
         </div>
-
-        <div class="row justify-content products">
-            @foreach($bikes as $bike)
-                @if($bike->forSale == 1)
-                    <div class="pr-3 col-md-4 mt-3 mb-3">
-                        <div class="card product product-height">
-                            <div class="product-image"></div>
-                            <div class="card-body position-relative">
-                                <h5 class="card-title">{{$bike->naam}}</h5>
-                                <span>
-                                    @if ($bike->aanbiedingsprijs == 0.00)
-                                        <h1> &euro;{{$bike->prijs}}</h1>
-                                    @else
-                                        <span style="text-decoration: line-through red">
-                                            <h4>&euro;{{$bike->prijs}}</h4>
+        <div class="container">
+            <div class="row justify-content products">
+                @foreach($bikes as $bike)
+                    @if($bike->forSale == 1)
+                        <div class="pr-3 col-md-4 mt-3 mb-3">
+                            <div class="card product product-height">
+                                <div class="product-image"></div>
+                                <div class="card-body position-relative products--card">
+                                    <h2 class="card-title products--title">{{$bike->naam}}</h2>
+                                    <div class="products--price">
+                                        <span>
+                                            @if ($bike->aanbiedingsprijs == 0.00)
+                                                <h3> &euro;{{$bike->prijs}}</h3>
+                                            @else
+                                                <span style="text-decoration: line-through red">
+                                                    <h5>&euro;{{$bike->prijs}}</h5>
+                                                </span>
+                                                <h3>&euro;{{$bike->aanbiedingsprijs}}</h3>
+                                            @endif
                                         </span>
-                                        <h1>&euro;{{$bike->aanbiedingsprijs}}</h1>
-                                    @endif
-                                </span>
-                                <p class="card-text">{{$bike->omschrijving}}</p>
-                                <ul>
-                                    <li>Versnellingen: {{$bike->versnellingen}}</li>
-                                    @foreach($categories as $type)
-                                        @if($bike->typeId == $type->id )
-                                            <li>Type: {{$type->Naam}}</li>
-                                        @endif
-                                    @endforeach
-                                </ul>
-                                <div class="position-absolute bottomRight ">
-                                    <a href="products/{{$bike->id}}" class="button">Bekijk</a>
+                                    </div>
+                                    <ul class="products--list">
+                                        <li>Versnellingen: {{$bike->versnellingen}}</li>
+                                        @foreach($categories as $type)
+                                            @if($bike->typeId == $type->id )
+                                                <li>Type: {{$type->Naam}}</li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                    <div class="position-absolute products--buttonwrap">
+                                        <a href="products/{{$bike->id}}" class="button products--button">Bekijk</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endif
-            @endforeach
+                    @endif
+                @endforeach
 
+            </div>
         </div>
 
         {{ $bikes->links() }}
