@@ -25,7 +25,16 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    public function redirectTo()
+    {
+        if (auth()->user()->isEmployee == 1) {
+            return '/admin';
+
+        } else {
+            return '/';
+        }
+    }
+//    protected $redirectTo = '/admin';
 
     /**
      * Create a new controller instance.
@@ -36,4 +45,5 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
 }

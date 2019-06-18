@@ -16,8 +16,10 @@ class AuthenticatedMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check() && Auth::user()->isEmployee)
-        return $next($request);
+        if (Auth::check()) {
+            if (Auth::user()->isEmployee)
+                return $next($request);
+        }
 
         return redirect('/login');
     }

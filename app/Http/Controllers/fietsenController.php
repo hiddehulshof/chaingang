@@ -215,7 +215,6 @@ class fietsenController extends Controller
                     "name" => $product->naam,
                     "quantity" => $product->id,
                     "price" => $product->prijs,
-                    "photo" => $product->aanbiedingsprijs,
                     "aanbiedingsprijs" => $product->aanbiedingsprijs
 
                 ]
@@ -234,7 +233,6 @@ class fietsenController extends Controller
             "name" => $product->naam,
             "quantity" => $product->id,
             "price" => $product->prijs,
-            "photo" => $product->aandbiedingsprijs,
             "aanbiedingsprijs" => $product->aanbiedingsprijs
         ];
 
@@ -252,8 +250,6 @@ class fietsenController extends Controller
 
 
         $carts = session()->get('cart');
-        foreach ($carts as $cart)
-
-        dd($cart["quantity"]);
+        dd($carts);
     }
 }

@@ -56,7 +56,7 @@ Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::resource("products", "fietsenController");
 Route::post("products", "fietsenController@filter");
 
-Route::resource("admin", "gebruikerController");
+Route::resource("admin", "gebruikerController")->middleware('authenticated');
 
 
 Route::get('cart', 'fietsenController@cart');
