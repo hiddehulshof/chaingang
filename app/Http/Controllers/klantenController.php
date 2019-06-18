@@ -66,13 +66,9 @@ class klantenController extends Controller
      */
     public function show(User $customer)
     {
-        if(Auth::check())
-        {
             $user = Auth::user();
             return view("customers.profile", compact("user"));
-        }
 
-        return redirect("/");
     }
 
     /**

@@ -21,6 +21,11 @@
                                required>
                     </div>
                     <div class="col-12 form-group">
+                        <label  class="contact__label" for="inputName"> Kgileur</label>
+                        <input type="text" class="form-control" name="kleur" id="InputEmail" aria-describedby="email"
+                               required>
+                    </div>
+                    <div class="col-12 form-group">
                         <label  class="contact__label" for="InputEmail"> Prijs:</label>
                         <input type="text" class="form-control" name="prijs" id="InputEmail" aria-describedby="email"
                                >

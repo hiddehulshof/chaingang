@@ -12,23 +12,28 @@
         <div class="row">
                 <div class="col-12 form-group">
                     <label  class="contact__label" for="InputEmail"> Naam</label>
-                    <input type="text" class="form-control" name="naam" id="InputEmail" aria-describedby="email"
+                    <input type="text" class="form-control" name="naam" id="InputNaam" aria-describedby="naam"
                            value="{{$bike->naam}}" required>
                 </div>
                 <div class="col-12 form-group">
                     <label  class="contact__label" for="InputEmail"> Prijs:</label>
-                    <input type="text" class="form-control" name="prijs" id="InputEmail" aria-describedby="email"
+                    <input type="number" class="form-control" name="prijs" id="Prijs" aria-describedby="Prijs"
                            value="{{$bike->prijs}}">
                 </div>
                 <div class="col-12 form-group">
                     <label  class="contact__label" for="InputEmail"> Aanbiedingsprijs:</label>
-                    <input type="text" class="form-control" name="aanbieding" id="InputEmail" aria-describedby="email"
+                    <input type="number" class="form-control" name="aanbieding" id="InputEmail" aria-describedby="email"
                            value="{{$bike->aanbiedingsprijs}}" >
                 </div>
             <div class="col-12 form-group">
                 <label  class="contact__label" for="InputEmail"> Aanbiedingsprijs:</label>
                 <input type="text" class="form-control" name="merk" id="InputEmail" aria-describedby="email"
                        value="{{$bike->merk}}" >
+            </div>
+            <div class="col-12 form-group">
+                <label  class="contact__label" for="InputEmail"> Aanbiedingsprijs:</label>
+                <input type="text" class="form-control" name="kleur" id="InputEmail" aria-describedby="email"
+                       value="{{$bike->kleur}}" >
             </div>
 
                 <div class="col-12 form-group">

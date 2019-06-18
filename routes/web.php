@@ -50,7 +50,7 @@ Route::get('/review-form', function() {
 });
 
 
-Route::get('/profile', "klantenController@show");
+Route::get('/profile', "klantenController@show")->middleware('auth');
 Route::post("/login", "klantenController@login");
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::resource("products", "fietsenController");
@@ -60,7 +60,7 @@ Route::resource("admin", "gebruikerController");
 
 
 Route::get('cart', 'fietsenController@cart');
-Route::get('cart/betaal', 'fietsenController@placeorder');
+Route::get('cart/betaal', 'fietsenController@placeorder')->middleware('auth');
 
 
 
@@ -68,27 +68,27 @@ Route::patch('update-cart', 'fietsenController@update');
 
 Route::delete('remove-from-cart', 'fietsenController@remove');
 
-Route::get("admin/products/overview", "gebruikerController@products");
+Route::get("admin/products/overview", "gebruikerController@products")->middleware('authenticated');
 
-Route::get("admin/users/overview", "gebruikerController@users");
+Route::get("admin/users/overview", "gebruikerController@users")->middleware('authenticated');
 
-Route::get("admin/orders/overview", "gebruikerController@orders");
+Route::get("admin/orders/overview", "gebruikerController@orders")->middleware('authenticated');
 
-Route::get("admin/reviews/overview", "gebruikerController@reviews");
+Route::get("admin/reviews/overview", "gebruikerController@reviews")->middleware('authenticated');
 
 
-Route::get('admin/products/create', 'gebruikerController@createproduct');
+Route::get('admin/products/create', 'gebruikerController@createproduct')->middleware('authenticated');
 
-Route::get('admin/products/{id}', 'gebruikerController@editproduct');
+Route::get('admin/products/{id}', 'gebruikerController@editproduct')->middleware('authenticated');
 
-Route::get('admin/orders/{id}', 'gebruikerController@showorder');
+Route::get('admin/orders/{id}', 'gebruikerController@showorder')->middleware('authenticated');
 
-Route::get('admin/reviews/{id}', 'gebruikerController@editreview');
+Route::get('admin/reviews/{id}', 'gebruikerController@editreview')->middleware('authenticated');
 
-Route::get('admin/users/{id}', 'gebruikerController@edituser');
+Route::get('admin/users/{id}', 'gebruikerController@edituser')->middleware('authenticated');
 
-Route::get('admin/users/delete/{id}', 'gebruikerController@deleteuser');
-Route::get('admin/products/delete/{id}', 'gebruikerController@deleteproduct');
+Route::get('admin/users/delete/{id}', 'gebruikerController@deleteuser')->middleware('authenticated');
+Route::get('admin/products/delete/{id}', 'gebruikerController@deleteproduct')->middleware('authenticated');
 
 Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 
@@ -97,8 +97,8 @@ Route::resource("newsletter", "nieuwsbriefController");
 Route::post("register", "klantenController@store");
 
 
-Route::post("admin/products/create", 'gebruikerController@storeproduct');
-Route::post("admin/products/edit/{id}", 'gebruikerController@editexistingproduct');
+Route::post("admin/products/create", 'gebruikerController@storeproduct')->middleware('authenticated');
+Route::post("admin/products/edit/{id}", 'gebruikerController@editexistingproduct')->middleware('authenticated');
 
 Auth::routes();
 
