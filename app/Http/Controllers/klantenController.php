@@ -126,6 +126,5 @@ class klantenController extends Controller
         {
             return back()->withInput();
         }
-        dd($user);
     }
 }

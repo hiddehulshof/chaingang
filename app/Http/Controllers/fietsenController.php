@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use App\Bike;
 use App\BaseCollection;
 use App\BikeCatagory;
+use App\Order;
+use App\OrderItem;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class fietsenController extends Controller
 {
@@ -207,7 +210,6 @@ class fietsenController extends Controller
 
         $cart = session()->get('cart');
 
-        // if cart is empty then this the first product
         if(!$cart) {
 
             $cart = [
@@ -247,9 +249,36 @@ class fietsenController extends Controller
             $location = "/cart";
             return redirect("/login", compact("location"));
         }
-
-
         $carts = session()->get('cart');
-        dd($carts);
+
+        $order = new Order();
+        $user = auth()->user();
+        $order->klantID = $user->id;
+        $order->postcode = $user->Postcode;
+
+
+        $order->straat = $user->Straat;
+        $order->huisnr = $user->Huisnr;
+        $order->plaats = $user->Plaats;
+        $order->statusID = 1;
+        $order->bestelDatum =now();
+        $order->leverDatum =now();
+        $order->save();
+
+
+        foreach ($carts as $cart)
+        {
+            $bike = Bike::find($cart["quantity"]);
+            $bike->forSale = 0;
+            $bike->save();
+            $orderitem = new OrderItem();
+            $orderitem->ProductID = $cart["quantity"];
+            $orderitem->BestellingID = $order->id;
+            $orderitem->save();
+        }
+
+        Session::forget('cart');
+        return redirect()->back()->with('success', 'Product added to cart successfully!');
+
     }
 }

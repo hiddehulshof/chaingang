@@ -16,11 +16,12 @@ class AuthenticatedMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (Auth::check()) {
-            if (Auth::user()->isEmployee)
+        if (Auth::check())
+            if (auth()->user()->isEmployee == 1)
                 return $next($request);
-        }
 
-        return redirect('/login');
+
+            return redirect('/login');
+
     }
 }

@@ -89,6 +89,7 @@ Route::get('admin/users/{id}', 'gebruikerController@edituser')->middleware('auth
 
 Route::get('admin/users/delete/{id}', 'gebruikerController@deleteuser')->middleware('authenticated');
 Route::get('admin/products/delete/{id}', 'gebruikerController@deleteproduct')->middleware('authenticated');
+Route::get('admin/orders/delete/{id}', 'gebruikerController@deleteorder')->middleware('authenticated');
 
 Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 

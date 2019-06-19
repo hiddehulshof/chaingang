@@ -9,4 +9,9 @@ class User extends Authenticatable
 {
     public $timestamps = false;
     protected $guarded = [];
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class, 'KlantID');
+    }
 }

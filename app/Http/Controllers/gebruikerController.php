@@ -203,9 +203,19 @@ class gebruikerController extends Controller
         return $this->handleAllowed(redirect("admin/products/overview"));
 
     }
+    public function deleteorder($id)
+    {
+        $order = Order::find($id);
+        $orderitems = OrderItem::query()->where('BestellingID', '==', $order->id);
+        $orderitems->delete();
+        $order->delete();
+        return $this->handleAllowed(redirect("admin/products/overview"));
+
+    }
     public function deleteuser($id)
     {
         $user = User::find($id);
+        $user->orders()->delete();
 
         $user->delete();
         return $this->handleAllowed(redirect("admin/users/overview"));
