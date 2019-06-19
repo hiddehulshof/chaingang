@@ -5,27 +5,6 @@
             <form method="post" class="w-100">
                 <div class="row">
                     <div class="col-md-6 form-group">
-                        <label class="contact__label" for="InputFirstname">Voornaam *</label>
-                        <input type="text" class="form-control" name="firstname" id="InputFirstname"
-                               aria-describedby="firstname" placeholder="Voornaam" required>
-                    </div>
-                    <div class="col-md-6 form-group">
-                        <label class="contact__label" for="InputLastname">Achternaam *</label>
-                        <input type="text" class="form-control" name="lastname" id="InputLastname"
-                               aria-describedby="lastname"
-                               placeholder="Achternaam" required>
-                    </div>
-                    <div class="col-md-6 form-group">
-                        <label class="contact__label" for="InputTelephone">Telefoonnummer</label>
-                        <input type="tel" class="form-control" name="phonenumber" id="InputTelephone"
-                               aria-describedby="telephone" placeholder="Telefoonnummer">
-                    </div>
-                    <div class="col-md-6 form-group">
-                        <label  class="contact__label" for="InputEmail">E-mailadres *</label>
-                        <input type="email" class="form-control" name="e-mail" id="InputEmail" aria-describedby="email"
-                               placeholder="Emailadres" required>
-                    </div>
-                    <div class="col-md-6 form-group">
                         <label class="contact__label" for="InputSubject">Titel *</label>
                         <input type="text" class="form-control" name="subject" id="InputSubject" aria-describedby="subject"
                                placeholder="Titel" required>
