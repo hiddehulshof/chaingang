@@ -79,7 +79,13 @@ class klantenController extends Controller
      */
     public function edit(User $customer)
     {
-        //
+        if(Auth::check())
+        {
+            $user = Auth::user();
+            return view("customers.profile", compact("user"));
+        }
+
+        return redirect("/");
     }
 
     /**
@@ -91,7 +97,20 @@ class klantenController extends Controller
      */
     public function update(Request $request, User $customer)
     {
-        //
+        Auth::user()->Voornaam = request("firstname");
+        Auth::user()->Achternaam = request("lastname");
+        Auth::user()->Tussenvoegsel = request("between");
+        Auth::user()->Email = request("email");
+        Auth::user()->name = request("email");
+        Auth::user()->TelefoonNR = request("telephone");
+        Auth::user()->Straat = request("street");
+        Auth::user()->Huisnr = request("housenumber");
+        Auth::user()->Postcode = request("zipcode");
+        Auth::user()->Plaats = request("city");
+
+        Auth::user()->save();
+
+        return redirect("/");
     }
 
     /**
