@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Reviews;
+use App\Review;
 use Illuminate\Http\Request;
 
 class reviewsController extends Controller
@@ -24,7 +24,7 @@ class reviewsController extends Controller
      */
     public function create()
     {
-        //
+        return view('review-form');
     }
 
     /**
@@ -33,9 +33,17 @@ class reviewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $review = new Review();
+
+        $review->KlantID = auth()->user()->id;
+        $review->Titel = request('titel');
+        $review->Text = request('text');
+
+        $review->save();
+
+        return view('reviews');
     }
 
     /**

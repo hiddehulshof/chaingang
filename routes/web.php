@@ -33,9 +33,6 @@ Route::get('/over-ons', function () {
 Route::get('/product', function () {
     return view('products/product_details');
 });
-//Route::get('/profile', function () {
-//    return view('customers/profile');
-//});
 
 Route::get('/register', function () {
     return view('register');
@@ -45,9 +42,8 @@ Route::get('/reviews', function() {
     return view('reviews');
 });
 
-Route::get('/review-form', function() {
-    return view('review-form');
-});
+Route::get('/review-form', "reviewsController@create")->middleware('auth');
+Route::post('/review-form', "reviewsController@store");
 
 
 Route::get('/profile', "klantenController@show")->middleware('auth');
