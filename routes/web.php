@@ -94,7 +94,7 @@ Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 
 Route::resource("newsletter", "nieuwsbriefController");
 
-Route::post("register", "klantenController@store");
+//Route::post("register", "klantenController@store");
 
 
 Route::post("admin/products/create", 'gebruikerController@storeproduct')->middleware('authenticated');
