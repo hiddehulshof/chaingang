@@ -3,15 +3,16 @@
             <h2>Schrijf een review</h2>
             <hr>
             <form method="post" class="w-100">
+                @csrf
                 <div class="row">
                     <div class="col-md-6 form-group">
                         <label class="contact__label" for="InputSubject">Titel *</label>
-                        <input type="text" class="form-control" name="subject" id="InputSubject" aria-describedby="subject"
+                        <input type="text" class="form-control" name="titel" id="InputSubject" aria-describedby="subject"
                                placeholder="Titel" required>
                     </div>
                     <div class="col-md-12 form-group">
                         <label class="contact__label" for="InputQuestion">Uw review *</label>
-                        <textarea class="form-control" name="textfield" id="InputQuestion" aria-describedby="question"
+                        <textarea class="form-control" name="text" id="InputQuestion" aria-describedby="question"
                                   placeholder="Uw vraag" rows="5" required></textarea>
                     </div>
                     <div class="col-md-12 mb-3">

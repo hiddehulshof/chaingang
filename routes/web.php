@@ -33,9 +33,6 @@ Route::get('/over-ons', function () {
 Route::get('/product', function () {
     return view('products/product_details');
 });
-//Route::get('/profile', function () {
-//    return view('customers/profile');
-//});
 
 Route::get('/register', function () {
     return view('register');
@@ -45,11 +42,10 @@ Route::get('/reviews', function() {
     return view('reviews');
 });
 
-Route::get('/review-form', function() {
-    return view('review-form');
-});
+Route::get('/review-form', "reviewsController@create")->middleware('auth');
+Route::post('/review-form', "reviewsController@store");
 
-
+Route::post('/profile', "klantenController@update")->middleware('auth');
 Route::get('/profile', "klantenController@show")->middleware('auth');
 Route::post("/login", "klantenController@login");
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
@@ -89,6 +85,7 @@ Route::get('admin/users/{id}', 'gebruikerController@edituser')->middleware('auth
 
 Route::get('admin/users/delete/{id}', 'gebruikerController@deleteuser')->middleware('authenticated');
 Route::get('admin/products/delete/{id}', 'gebruikerController@deleteproduct')->middleware('authenticated');
+Route::get('admin/orders/delete/{id}', 'gebruikerController@deleteorder')->middleware('authenticated');
 
 Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 
