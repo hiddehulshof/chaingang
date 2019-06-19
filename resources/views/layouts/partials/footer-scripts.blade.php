@@ -10,7 +10,6 @@
 <script type="text/javascript">
 
     $(".update-cart").click(function (e) {
-        console.log('test');
         e.preventDefault();
 
         var ele = $(this);
