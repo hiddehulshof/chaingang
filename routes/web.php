@@ -7,7 +7,7 @@
 |
 | Here is where you can register web routes for your application. These
 | routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| contains the 'web' middleware group. Now create something great!
 |
 */
 
@@ -16,7 +16,7 @@
 //});
 
 
-Route::resource("/", "homepageController");
+Route::resource('/', 'homepageController');
 
 
 Route::get('/contact', function () {
@@ -42,16 +42,16 @@ Route::get('/reviews', function() {
     return view('reviews');
 });
 
-Route::get('/review-form', "reviewsController@create")->middleware('auth');
-Route::post('/review-form', "reviewsController@store");
+Route::get('/review-form', 'reviewsController@create')->middleware('auth');
+Route::post('/review-form', 'reviewsController@store');
 
-Route::get('/profile', "klantenController@show")->middleware('auth');
-Route::post("/login", "klantenController@login");
+Route::get('/profile', 'klantenController@show')->middleware('auth');
+Route::post('/login', 'klantenController@login');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
-Route::resource("products", "fietsenController");
-Route::post("products", "fietsenController@filter");
+Route::resource('products', 'fietsenController');
+Route::post('products', 'fietsenController@filter');
 
-Route::resource("admin", "gebruikerController")->middleware('authenticated');
+Route::resource('admin', 'gebruikerController')->middleware('authenticated');
 
 
 Route::get('cart', 'fietsenController@cart');
@@ -63,13 +63,13 @@ Route::patch('update-cart', 'fietsenController@update');
 
 Route::delete('remove-from-cart', 'fietsenController@remove');
 
-Route::get("admin/products/overview", "gebruikerController@products")->middleware('authenticated');
+Route::get('admin/products/overview', 'gebruikerController@products')->middleware('authenticated');
 
-Route::get("admin/users/overview", "gebruikerController@users")->middleware('authenticated');
+Route::get('admin/users/overview', 'gebruikerController@users')->middleware('authenticated');
 
-Route::get("admin/orders/overview", "gebruikerController@orders")->middleware('authenticated');
+Route::get('admin/orders/overview', 'gebruikerController@orders')->middleware('authenticated');
 
-Route::get("admin/reviews/overview", "gebruikerController@reviews")->middleware('authenticated');
+Route::get('admin/reviews/overview', 'gebruikerController@reviews')->middleware('authenticated');
 
 
 Route::get('admin/products/create', 'gebruikerController@createproduct')->middleware('authenticated');
@@ -87,13 +87,13 @@ Route::get('admin/products/delete/{id}', 'gebruikerController@deleteproduct')->m
 
 Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 
-Route::resource("newsletter", "nieuwsbriefController");
+Route::resource('newsletter', 'nieuwsbriefController');
 
-Route::post("register", "klantenController@store");
+Route::post('register', 'klantenController@store');
 
 
-Route::post("admin/products/create", 'gebruikerController@storeproduct')->middleware('authenticated');
-Route::post("admin/products/edit/{id}", 'gebruikerController@editexistingproduct')->middleware('authenticated');
+Route::post('admin/products/create', 'gebruikerController@storeproduct')->middleware('authenticated');
+Route::post('admin/products/edit/{id}', 'gebruikerController@editexistingproduct')->middleware('authenticated');
 
 Auth::routes();
 
