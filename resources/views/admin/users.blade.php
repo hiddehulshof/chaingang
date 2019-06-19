@@ -33,19 +33,33 @@
 
                         <td> {{$user->Email}}</td>
                         <td> {{$user->Gebruikersnaam}}</td>
-                        <td> @if($user->isAdmin == 1)
-                                 Administrator
-                                 @else
-                                 Gebruiker
-                                 @endif
+                        {{--<td> @if($user->isAdmin == 1)--}}
+                                 {{--Administrator--}}
+                                 {{--@else--}}
+                                 {{--Gebruiker--}}
+                                 {{--@endif--}}
+                        {{--</td>--}}
+                        <td>
+                            @if($user->isEmployee)
+                                @if($user->isAdmin)
+                                Administrator
+                                @else
+                                Medewerker
+                                @endif
+                            @else
+                            Klant
+                            @endif
+
                         </td>
                         <td> {{$user->telefoonNr}}</td>
                         <td>
-                            <div class="buttons">
-                                <a  href="{{$user->id}}"><button class="button"><i class="fa fa-edit"></i></button></a>
+                            @if($user->isEmployee == false || $currentUser->isAdmin || $user->id == $currentUser->id)
+                                <div class="buttons">
+                                    <a  href="{{$user->id}}"><button class="button"><i class="fa fa-edit"></i></button></a>
 
-                                <a  href="delete/{{$user->id}}"><button class="button button__delete"><i class="fa fa-trash"></i></button></a>
-                            </div>
+                                    <a  href="delete/{{$user->id}}"><button class="button button__delete"><i class="fa fa-trash"></i></button></a>
+                                </div>
+                            @endif
                         </td>
                     </tr>
                 @endforeach
@@ -55,7 +69,9 @@
             </table>
             {{$users->links()}}
             <div class="article">
-                <button class="button"> Voeg gebruiker toe</button>
+                @if ($currentUser->isAdmin)
+                    <button class="button"> Voeg gebruiker toe</button>
+                @endif
             </div>
         </div>
     </div>

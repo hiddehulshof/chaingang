@@ -29,7 +29,7 @@
                 </div>
                 <div class="form-group col-12">
                     <div class="row">
-                        <div class="col-md-4"><label><b>Wachtoord *</b></label></div>
+                        <div class="col-md-4"><label><b>Wachtwoord *</b></label></div>
                         <div class="col-md-8"><input type="password" class="form-control" name="password" required="required"></div>
                     </div>
                 </div>
