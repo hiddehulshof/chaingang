@@ -57,8 +57,8 @@ class gebruikerController extends Controller
     public function users()
     {
         $users = User::paginate(6);
-
-        return $this->handleAllowed(view("admin.users", compact('users')));
+        $currentUser = Auth::user();
+        return $this->handleAllowed(view("admin.users", compact('users', 'currentUser')));
 
     }
     public function orders()
