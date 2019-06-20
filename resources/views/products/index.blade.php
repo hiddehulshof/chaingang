@@ -78,11 +78,19 @@
         </div>
         <div class="container">
             <div class="row justify-content products">
+
+                @php($i = 0)
                 @foreach($bikes as $bike)
+
                     @if($bike->forSale == 1)
                         <div class="pr-3 col-md-4 mt-3 mb-3">
                             <div class="card product product-height">
-                                <div class="product-image"></div>
+                                @foreach($images as $img)
+                                    @if($img->FietsID == $bike->id)
+                                         <div class="product-image" style="background-image: url('{{url("images/" . $img->Filename)}}');"></div>
+                                        @break
+                                    @endif
+                                @endforeach
                                 <div class="card-body position-relative products--card">
                                     <h2 class="card-title products--title">{{$bike->naam}}</h2>
                                     <div class="products--price">

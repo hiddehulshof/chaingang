@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Bike;
 use App\BaseCollection;
 use App\BikeCatagory;
+use App\BikePicture;
 use App\Order;
 use App\OrderItem;
 use App\Product;
@@ -24,10 +25,12 @@ class fietsenController extends Controller
         $collection =  Bike::where('forSale', '=', 1);
         $bikes = $collection->paginate(6);
         $categories = BikeCatagory::all();
+        $images = BikePicture::all();
+
         $brands = $bikes->pluck('merk')->unique();
 
 
-        return view("products.index", compact('bikes','categories','brands'));
+        return view("products.index", compact('bikes','categories','brands', 'images'));
     }
 
     /**
@@ -43,6 +46,7 @@ class fietsenController extends Controller
     {
         $collection = Bike::where('forSale', '=', 1);
         $brands = $collection->pluck('merk')->unique();
+        $images = BikePicture::all();
 
         if(request('search')!= "Zoek")
         {
@@ -99,7 +103,7 @@ class fietsenController extends Controller
 
 
 
-        return view("products.index", compact('bikes','categories', 'brands'));
+        return view("products.index", compact('bikes','categories', 'brands', 'images'));
     }
     /**
      * Store a newly created resource in storage.
@@ -121,6 +125,11 @@ class fietsenController extends Controller
     public function show($id)
     {
         $bike = Bike::find($id);
+        $pictures = BikePicture::all();
+
+
+//            dd($pictures);
+
         $categories = BikeCatagory::all();
         if ($bike === null){
             return view('404');
@@ -130,7 +139,7 @@ class fietsenController extends Controller
             return view('403');
         }
         else {
-            return view('products.product_details', compact('bike', 'categories'));
+            return view('products.product_details', compact('bike', 'categories','pictures'));
         }
     }
 

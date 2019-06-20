@@ -7,6 +7,7 @@
     <div class="article">
         <div class="container">
             <h1 class="article__heading py-4">{{$bike->naam}}</h1>
+
             <div class="row ">
 
                 <div class="col-md-6 py-3">
@@ -17,15 +18,33 @@
                             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <div class="product-detail-image d-block w-100"></div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="product-detail-image d-block w-100"></div>
-                            </div>
-                            <div class="carousel-item">
-                                <div class="product-detail-image d-block w-100"></div>
-                            </div>
+                            @php($first=1)
+                            @foreach($pictures as $img)
+                                @if($img->FietsID == $bike->id)
+                                @if($first == 1)
+                                <div class="carousel-item active">
+                                    {{--<div class="d-block w-100 product-image">--}}
+                                        <div class="product-detail-image" style="background-image: url('{{url("images/$img->Filename")}}');"></div>
+
+                                        {{--<img class="img-fluid" src="{{url("images/$img->Filename")}}">--}}
+                                    {{--</div>--}}
+                                    @php($first = 0)
+                                </div>
+                                @else
+                                        <div class="carousel-item ">
+                                            {{--<div class="d-block w-100 product-image">--}}
+                                            <div class="product-detail-image" style="background-image: url('{{url("images/$img->Filename")}}');"></div>
+
+                                            {{--<img class="img-fluid" src="{{url("images/$img->Filename")}}">--}}
+                                            {{--</div>--}}
+
+                                        </div>
+
+                            @endif
+                                @endif
+                            @endforeach
+
+
                         </div>
                         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
