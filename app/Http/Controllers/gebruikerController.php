@@ -115,7 +115,13 @@ class gebruikerController extends Controller
         $this->validate($request, [
 
             'filename' => 'required',
-            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'naam' => 'required',
+            'merk' => 'required',
+            'type' => 'required',
+            'prijs' => 'required',
+            'omschrijving' => 'required',
+            'versnellingen' => 'required',
 
         ]);
 
@@ -145,8 +151,8 @@ class gebruikerController extends Controller
 
             foreach($request->file('filename') as $image)
             {
-                $name=$image->getClientOriginalName();
-                $image->move(public_path().'/images/', $name);
+                $name=$bike->id."_".$image->getClientOriginalName();
+                $image->move(public_path().'/images/', $name );
                 $picture = new BikePicture();
                 $picture->Filename = $name;
                 $picture->FietsID = $bike->id;
@@ -197,8 +203,19 @@ class gebruikerController extends Controller
 
     }
 
-    public function editexistingproduct($id)
+    public function editexistingproduct($id, Request $request)
     {
+        $this->validate($request, [
+
+
+            'naam' => 'required',
+            'merk' => 'required',
+            'type' => 'required',
+            'prijs' => 'required',
+            'omschrijving' => 'required',
+            'versnellingen' => 'required',
+
+        ]);
         $bike = Bike::find($id);
         $bike->naam = request('naam');
         $bike->merk =  request('merk');

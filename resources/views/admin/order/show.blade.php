@@ -74,6 +74,7 @@
                             @foreach($bikes as $bike)
                                 @if($bike->id == $orderitem->ProductID)
                                     <td class="p-3">  {{$bike->naam}}</td>
+                                    @if($ike)
                                         <td class="p-3">  &euro;{{$bike->prijs}}</td>
                                         <?php $total += $bike->prijs ?>
                                 @endif
