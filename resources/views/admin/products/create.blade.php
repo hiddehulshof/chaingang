@@ -5,7 +5,7 @@
             <h1>Voeg fiets toe</h1>
 
 
-            <form method="post" class="w-100">
+            <form method="post" enctype="multipart/form-data" class="w-100">
                 @csrf
 
 
@@ -56,7 +56,23 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="col-12 form-group">
+
+                    <div class="input-group control-group increment" >
+                    <input type="file" name="filename[]" class="form-control">
+                    <div class="input-group-btn">
+                        <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
+                    </div>
+                </div>
+                <div class="clone hide">
+                    <div class="control-group input-group" style="margin-top:10px">
+                        <input type="file" name="filename[]" class="form-control">
+                        <div class="input-group-btn">
+                            <button class="btn btn-danger" type="button"><i class="glyphicon glyphicon-remove"></i> Remove</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 form-group">
 
                         <button type="submit" class="button is-link">Opslaan</button>
 
@@ -64,6 +80,26 @@
                 </div>
 
             </form>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
 @endsection

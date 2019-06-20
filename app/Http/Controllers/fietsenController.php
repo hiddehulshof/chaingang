@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Bike;
 use App\BaseCollection;
 use App\BikeCatagory;
+use App\BikePicture;
 use App\Order;
 use App\OrderItem;
 use App\Product;
@@ -121,6 +122,11 @@ class fietsenController extends Controller
     public function show($id)
     {
         $bike = Bike::find($id);
+        $pictures = BikePicture::all();
+
+
+//            dd($pictures);
+
         $categories = BikeCatagory::all();
         if ($bike === null){
             return view('404');
@@ -130,7 +136,7 @@ class fietsenController extends Controller
             return view('403');
         }
         else {
-            return view('products.product_details', compact('bike', 'categories'));
+            return view('products.product_details', compact('bike', 'categories','pictures'));
         }
     }
 

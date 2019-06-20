@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Bike;
 use App\BikeCatagory;
+use App\BikePicture;
 use App\Customer;
 use App\Order;
 use App\OrderItem;
@@ -108,24 +109,52 @@ class gebruikerController extends Controller
     {
 
     }
-    public function storeproduct()
+    public function storeproduct(Request $request)
     {
-      $bike = new Bike();
+
+        $this->validate($request, [
+
+            'filename' => 'required',
+            'filename.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+
+        ]);
+
+        $bike = new Bike();
 
 
-      $bike->naam = request('naam');
-      $bike->merk =  request('merk');
-      $bike->typeId = request('type');
-        $bike->prijs = request('prijs');
-        $bike->aanbiedingsprijs = request('aanbieding');
-        $bike->omschrijving = request('omschrijving');
+      $bike->naam = $request->input('naam');
+      $bike->merk =  $request->input('merk');
+      $bike->typeId = $request->input('type');
+        $bike->prijs = $request->input('prijs');
+        $bike->aanbiedingsprijs = $request->input('aanbieding');
+        $bike->omschrijving = $request->input('omschrijving');
         $bike->additionDate = now();
-        $bike->versnellingen = request('versnellingen');
+        $bike->versnellingen = $request->input('versnellingen');
         $bike->kleur = 'Geel';
         $bike->bagagedrager = 1;
         $bike->forSale = 1;
 
         $bike->save();
+
+
+
+
+        if($request->hasfile('filename'))
+        {
+
+
+            foreach($request->file('filename') as $image)
+            {
+                $name=$image->getClientOriginalName();
+                $image->move(public_path().'/images/', $name);
+                $picture = new BikePicture();
+                $picture->Filename = $name;
+                $picture->FietsID = $bike->id;
+                $picture->save();
+
+            }
+        }
+
         return $this->handleAllowed(redirect("admin/products/overview"));
     }
 

@@ -31,8 +31,8 @@
                         <td> {{$user->Achternaam}}</td>
 
 
-                        <td> {{$user->Email}}</td>
-                        <td> {{$user->Gebruikersnaam}}</td>
+                        <td> {{$user->email}}</td>
+                        <td> {{$user->name}}</td>
                         {{--<td> @if($user->isAdmin == 1)--}}
                                  {{--Administrator--}}
                                  {{--@else--}}
@@ -57,7 +57,7 @@
                                 <div class="buttons">
                                     <a  href="{{$user->id}}"><button class="button"><i class="fa fa-edit"></i></button></a>
 
-                                    <a  href="delete/{{$user->id}}"><button class="button button__delete"><i class="fa fa-trash"></i></button></a>
+                                    <a  href="delete/{{$user->id}}"><button onclick="return confirm('Weet je het zeker?')" class="button button__delete"><i class="fa fa-trash"></i></button></a>
                                 </div>
                             @endif
                         </td>
