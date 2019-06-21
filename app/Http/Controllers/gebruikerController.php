@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Hash;
 use App\Bike;
 use App\BikeCatagory;
 use App\BikePicture;
@@ -65,7 +66,8 @@ class gebruikerController extends Controller
     public function orders()
     {
         $orders = Order::paginate(6);
-        return $this->handleAllowed(view("admin.orders", compact('orders')));
+        $users = User::all();
+        return $this->handleAllowed(view("admin.orders", compact('orders', 'users')));
 
     }
     public function reviews()
@@ -107,6 +109,29 @@ class gebruikerController extends Controller
      */
     public function store()
     {
+
+    }
+    public function storeuser(Request $request)
+    {
+        $user = new User();
+        $user->name = $request->input('gebruikersnaam');
+        $user->Voornaam = $request->input('voornaam');
+        $user->Achternaam = $request->input('achternaam');
+        $user->Tussenvoegsel = $request->input('tussenvoegsel');
+        $user->email = $request->input('email');
+        $user->password =  Hash::make($request->input('wachtwoord'));
+        $user->Postcode = $request->input('zipcode');
+        $user->Straat = $request->input('street');
+        $user->Huisnr = $request->input('housenumber');
+        $user->Plaats = $request->input('city');
+        $user->TelefoonNR = $request->input('telephone');
+        $user->isEmployee = 1;
+        $user->isAdmin = 0;
+
+        $user->save();
+        return redirect("admin/users/overview");
+
+
 
     }
     public function storeproduct(Request $request)
@@ -183,6 +208,11 @@ class gebruikerController extends Controller
         return $this->handleAllowed(view("admin.products.create", compact('categories')));
 
     }
+    public function createuser()
+    {
+        return $this->handleAllowed(view("admin.users.create"));
+
+    }
     public function editproduct($id)
     {
         $bike = Bike::find($id);
@@ -232,6 +262,28 @@ class gebruikerController extends Controller
         $bike->save();
 
         return $this->handleAllowed(redirect("admin/products/overview"));
+
+    }
+    public function editexistinguser($id, Request $request)
+    {
+
+        $user = User::find($id);
+        $user->name = $request->input('gebruikersnaam');
+        $user->Voornaam = $request->input('voornaam');
+        $user->Achternaam = $request->input('achternaam');
+        $user->Tussenvoegsel = $request->input('tussenvoegsel');
+        $user->email = $request->input('email');
+        $user->Postcode = $request->input('zipcode');
+        $user->Straat = $request->input('street');
+        $user->Huisnr = $request->input('housenumber');
+        $user->Plaats = $request->input('city');
+        $user->TelefoonNR = $request->input('telephone');
+        $user->isEmployee = 1;
+        $user->isAdmin = 0;
+
+        $user->save();
+        return redirect("admin/users/overview");
+
 
     }
     public function edituser($id)

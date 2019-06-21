@@ -73,6 +73,7 @@ Route::get('admin/reviews/overview', 'gebruikerController@reviews')->middleware(
 
 
 Route::get('admin/products/create', 'gebruikerController@createproduct')->middleware('authenticated');
+Route::get('admin/users/create', 'gebruikerController@createuser')->middleware('authenticated');
 
 Route::get('admin/products/{id}', 'gebruikerController@editproduct')->middleware('authenticated');
 
@@ -94,6 +95,9 @@ Route::post('register', 'klantenController@store');
 
 Route::post('admin/products/create', 'gebruikerController@storeproduct')->middleware('authenticated');
 Route::post('admin/products/edit/{id}', 'gebruikerController@editexistingproduct')->middleware('authenticated');
+Route::post('admin/users/edit/{id}', 'gebruikerController@editexistinguser')->middleware('authenticated');
+
+Route::post('admin/users/create', 'gebruikerController@storeuser')->middleware('authenticated');
 
 Auth::routes();
 
