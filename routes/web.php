@@ -46,6 +46,7 @@ Route::get('/review-form', 'reviewsController@create')->middleware('auth');
 Route::post('/review-form', 'reviewsController@store');
 
 Route::get('/profile', 'klantenController@show')->middleware('auth');
+Route::post('/profile', 'klantenController@update')->middleware('auth');
 Route::post('/login', 'klantenController@login');
 Route::get('/logout', '\App\Http\Controllers\Auth\LoginController@logout');
 Route::resource('products', 'fietsenController');
