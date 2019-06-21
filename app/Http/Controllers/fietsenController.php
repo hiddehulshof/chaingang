@@ -205,7 +205,8 @@ class fietsenController extends Controller
     }
     public function cart()
     {
-        return view('cart');
+        $bikepictures = BikePicture::all();
+        return view('cart', compact('bikepictures'));
     }
     public function addToCart($id)
     {
