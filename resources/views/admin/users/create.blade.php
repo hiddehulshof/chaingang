@@ -2,7 +2,7 @@
 @section('content')
     <div class="article">
         <div class="container">
-            <h1>Maak gebruiker}</h1>
+            <h1>Maak gebruiker</h1>
 
 
             <form method="post" class="w-100">
