@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Bike;
+use App\BikePicture;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -16,8 +17,8 @@ class homepageController extends Controller
     public function index()
     {
         $bikes = Bike::all()->sortByDesc('additionDate');
-  ;
-        return view("welcome", compact('bikes'));
+        $bikepictures = BikePicture::all();
+        return view("welcome", compact('bikes', 'bikepictures'));
     }
 
     /**

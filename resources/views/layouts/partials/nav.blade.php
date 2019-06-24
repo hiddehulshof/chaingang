@@ -17,7 +17,14 @@ Werkt mischien niet op de live server.--}}
             @guest
                 <a class="navigation__wrapper-link" href="/login">Login</a>
             @endguest
-            <a class="navigation__wrapper-link" href="/cart"><i class="fas fa-shopping-cart"></i></a>
+            @php($number = 0)
+            @if(session('cart'))
+
+            @foreach(session('cart') as $value)
+                @php($number++)
+                @endforeach
+            @endif
+            <a class="navigation__wrapper-link" href="/cart"><i class="fas fa-shopping-cart"></i> <span class="badge badge-danger">{{$number}}</span></a>
             @auth
                 <a class="navigation__wrapper-link" href="/profile"><i class="fas fa-user-alt"></i></a>
             @endauth

@@ -70,7 +70,7 @@
             {{$users->links()}}
             <div class="article">
                 @if ($currentUser->isAdmin)
-                    <button class="button"> Voeg gebruiker toe</button>
+                    <a  href="create"><button class="button"> Voeg gebruiker toe</button></a></div>
                 @endif
             </div>
         </div>

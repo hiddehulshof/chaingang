@@ -74,9 +74,15 @@
                             @foreach($bikes as $bike)
                                 @if($bike->id == $orderitem->ProductID)
                                     <td class="p-3">  {{$bike->naam}}</td>
-                                    @if($ike)
-                                        <td class="p-3">  &euro;{{$bike->prijs}}</td>
+                                    @if($bike->aanbiedingsprijs > 0)
+                                            <td style="text-decoration: line-through red">&euro;{{$bike->prijs}}</td>
+                                            <td class="p-3">     &euro;{{$bike->aanbiedingsprijs}}</td>
+                                            <?php $total += $bike->aanbiedingsprijs ?>
+
+                                        @else
+                                            <td class="p-3">  &euro;{{$bike->prijs}}</td>
                                         <?php $total += $bike->prijs ?>
+                                        @endif
                                 @endif
                             @endforeach
                             </tr>
