@@ -12,5 +12,9 @@
             <p>Guus nijman</p>
         </div>
 
+        <div class="reviews__action">
+            <a href="reviews" class="btn">Schrijf hier je eigen review</a>
+        </div>
+
     </div>
 </div>
