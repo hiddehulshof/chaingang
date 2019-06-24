@@ -12,6 +12,7 @@ use App\Review;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class gebruikerController extends Controller
 {
@@ -244,10 +245,16 @@ class gebruikerController extends Controller
     public function deleteproduct($id)
     {
         $bike = Bike::find($id);
-
+        $images = BikePicture::query()->where("FietsID", $id)->get();
         $bike ->delete();
-        return $this->handleAllowed(redirect("admin/products/overview"));
+        foreach ($images as $image)
+        {
+            //dd(public_path()."/images/".$image->Filename);
+            //$image->delete();
+            File::delete(public_path()."/images/".$image->Filename);
+        }
 
+        return $this->handleAllowed(redirect("admin/products/overview"));
     }
     public function deleteorder($id)
     {

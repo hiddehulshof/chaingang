@@ -5,7 +5,7 @@
       <h1>{{$bike->naam}}</h1>
 
 
-    <form method="post" action="edit/{{$bike->id}}}" class="w-100">
+    <form method="post" enctype="multipart/form-data" action="edit/{{$bike->id}}}" class="w-100">
    @csrf
 
 
@@ -63,7 +63,7 @@
                     <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
                 </div>
             </div>
-            <div class="clone hide">
+            <div class="clone" style="display: none">
                 <div class="control-group input-group" style="margin-top:10px">
                     <input type="file" name="filename[]" class="form-control">
                     <div class="input-group-btn">
