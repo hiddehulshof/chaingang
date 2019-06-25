@@ -21,7 +21,7 @@
                                required>
                     </div>
                     <div class="col-12 form-group">
-                        <label  class="contact__label" for="inputName"> Kgileur</label>
+                        <label  class="contact__label" for="inputName"> Kleur</label>
                         <input type="text" class="form-control" name="kleur" id="InputEmail" aria-describedby="email"
                                required>
                     </div>
@@ -63,7 +63,7 @@
                         <button class="btn btn-success" type="button"><i class="glyphicon glyphicon-plus"></i>Add</button>
                     </div>
                 </div>
-                <div class="clone hide">
+                <div class="clone" style="display: none">
                     <div class="control-group input-group" style="margin-top:10px">
                         <input type="file" name="filename[]" class="form-control">
                         <div class="input-group-btn">

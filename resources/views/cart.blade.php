@@ -25,12 +25,20 @@
                     <?php $total += $details['aanbiedingsprijs'] ?>
 
            @else
-                <?php $total += $details['price'] ?>
+                <?php $total += $details['price'];
+                ?>
                 @endif
                 <tr>
                     <td data-th="Product">
                         <div class="row">
-                            <div class="col-sm-3 hidden-xs"><img src="" width="100" height="100" class="img-responsive"/></div>
+                            @foreach($bikepictures as $img)
+                                @if($img->FietsID == $details['quantity'] )
+                            <div class="col-sm-3 hidden-xs"><img src="{{url("images/$img->Filename")}}" width="100" height="100" class="img-responsive"/></div>
+                                    @break
+                                @endif
+
+
+                            @endforeach
                             <div class="col-sm-9">
                                 <h4 class="nomargin"><a href="/products/{{$details['quantity']}}">{{ $details['name'] }}</a></h4>
                             </div>
@@ -55,7 +63,7 @@
             <td class="text-center"><strong>Totaal &euro;{{ $total }}</strong></td>
         </tr>
         <tr>
-            <td><a href="{{ url('/') }}" class="button"><i class="fa fa-angle-left"></i> verder winkelen</a></td>
+            <td><a href="{{ url('/products') }}" class="button"><i class="fa fa-angle-left"></i> verder winkelen</a></td>
             <td colspan="2" class="hidden-xs"></td>
             <td class="hidden-xs text-center"><strong>Totaal &euro;{{ $total }}</strong></td>
             <td><a href="cart/betaal" class="button"> Betaal</a></td>

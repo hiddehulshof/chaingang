@@ -11,8 +11,9 @@
                 <thead>
                 <tr>
                     <th>Ordernummer</th>
+                    <th>Klantnaam</th>
+
                     <th>Klant adres</th>
-                    <th></th>
                     <th></th>
                     <th></th>
                     <th></th>
@@ -25,14 +26,19 @@
 
                     <tr class="font-weight-bolder">
                         <td> {{$order->id}}</td>
-
+                        @foreach($users as $user)
+                            @if($user->id == $order->klantID)
+                                <td> {{ $user->name }}</td>
+                            @endif
+                        @endforeach
                         <td> {{$order->plaats}}</td>
                         <td> {{$order->postcode}}</td>
-                        <td> {{$order->straat}}</td>
-                        <td> {{$order->huisnr}}</td>
+                        <td> {{$order->straat}} {{$order->huisnr}}</td>
+
+
                         <td>
                             <div class="buttons">
-                                <a  href="{{$order->id}}" ><button class="button"><i class="fa fa-edit"></i></button></a>
+                                <a  href="{{$order->id}}" ><button class="button"><i class="fa fa-eye"></i></button></a>
                                 <a  href="delete/{{$order->id}}"><button onclick="return confirm('Weet je het zeker?')" class="button button__delete"><i class="fa fa-trash"></i></button></a>
                             </div>
                         </td>

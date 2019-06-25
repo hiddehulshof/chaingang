@@ -12,5 +12,9 @@
             <p>Guus nijman</p>
         </div>
 
+        <div class="reviews__action">
+            <a href="reviews" class="btn">Bekijk alle reviews</a>
+        </div>
+
     </div>
 </div>

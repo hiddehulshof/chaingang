@@ -8,7 +8,12 @@
                 <div class="col-md-4">
                     <a href="products/{{$bike->id}}">
                         <div class="single">
-                            <div class="products__block--products-photo"></div>
+                            @foreach($bikepictures as $img)
+                                @if($img->FietsID == $bike->id)
+                                 <div class="products__block--products-photo" style="background-image: url('{{url("images/$img->Filename")}}');"></div>
+                                    @break
+                                @endif
+                            @endforeach
                             <div class="products__block--products--info">
                                 <h3 class="products__block--products--info-name">{{$bike->naam}}</h3>
                                 <span class="products__block--products--info-price">
