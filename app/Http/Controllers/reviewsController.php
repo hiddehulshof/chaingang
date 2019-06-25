@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Review;
+use App\User;
 use Illuminate\Http\Request;
 
 class reviewsController extends Controller
@@ -14,7 +15,9 @@ class reviewsController extends Controller
      */
     public function index()
     {
-        //
+        $reviews = Review::all()->paginate(12);
+        $users = User::all();
+        return view("reviews", compact("reviews", "users"));
     }
 
     /**
@@ -52,9 +55,9 @@ class reviewsController extends Controller
      * @param  \App\Reviews  $reviews
      * @return \Illuminate\Http\Response
      */
-    public function show(Reviews $reviews)
+    public function show()
     {
-        //
+
     }
 
     /**

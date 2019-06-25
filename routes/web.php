@@ -38,12 +38,9 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/reviews', function() {
-    return view('reviews');
-});
-
 Route::get('/review-form', 'reviewsController@create')->middleware('auth');
 Route::post('/review-form', 'reviewsController@store');
+Route::get('/reviews', 'reviewsController@index');
 
 Route::get('/profile', 'klantenController@show')->middleware('auth');
 Route::post('/profile', 'klantenController@update')->middleware('auth');
