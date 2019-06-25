@@ -69,6 +69,9 @@ Route::get('admin/users/overview', 'gebruikerController@users')->middleware('aut
 
 Route::get('admin/orders/overview', 'gebruikerController@orders')->middleware('authenticated');
 
+Route::get('admin/newsletters/overview', 'gebruikerController@newsletters')->middleware('authenticated');
+
+
 Route::get('admin/reviews/overview', 'gebruikerController@reviews')->middleware('authenticated');
 
 
@@ -85,6 +88,7 @@ Route::get('admin/users/{id}', 'gebruikerController@edituser')->middleware('auth
 
 Route::get('admin/users/delete/{id}', 'gebruikerController@deleteuser')->middleware('authenticated');
 Route::get('admin/products/delete/{id}', 'gebruikerController@deleteproduct')->middleware('authenticated');
+Route::get('admin/newsletters/delete/{id}', 'gebruikerController@deletenewsletter')->middleware('authenticated');
 
 Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 

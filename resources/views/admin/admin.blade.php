@@ -30,6 +30,10 @@
                             <h3>Bestellingen </h3>
                             <p> Ingekomen bestellingen</p>
                         </a>
+                        <a href="admin/newsletters/overview" class="list-group-item">
+                            <h3>Niewsbrief </h3>
+                            <p> Ingeschreven emailadressen</p>
+                        </a>
                     </div>
                 </div>
 

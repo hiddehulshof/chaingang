@@ -234,7 +234,7 @@ class fietsenController extends Controller
 
             session()->put('cart', $cart);
 
-            return redirect()->back()->with('success', 'Product added to cart successfully!');
+            return redirect()->back()->with('success', 'Toegevoegd aan winkelwagen!');
         }
 
         // if cart not empty then check if this product exist then increment quantity
@@ -250,7 +250,7 @@ class fietsenController extends Controller
 
         session()->put('cart', $cart);
 
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back()->with('success', 'Toegevoegd aan winkelwagen!');
     }
     public function placeorder()
     {
@@ -288,7 +288,7 @@ class fietsenController extends Controller
         }
 
         Session::forget('cart');
-        return redirect()->back()->with('success', 'Product added to cart successfully!');
+        return redirect()->back()->with('success', 'Bedankt voor Uw Bestelling!');
 
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\NewsLetter;
 use Illuminate\Support\Facades\Hash;
 use App\Bike;
 use App\BikeCatagory;
@@ -54,7 +55,14 @@ class gebruikerController extends Controller
 
         return $this->handleAllowed(view("admin.products", compact('bikes')));
 
-        //return view("admin.products", compact('bikes'));
+
+    }
+    public function newsletters()
+    {
+        $newsletters = NewsLetter::paginate(6);
+
+        return $this->handleAllowed(view("admin.newsletter", compact('newsletters')));
+
 
     }
     public function users()
@@ -162,10 +170,9 @@ class gebruikerController extends Controller
         $bike->omschrijving = $request->input('omschrijving');
         $bike->additionDate = now();
         $bike->versnellingen = $request->input('versnellingen');
-        $bike->kleur = 'Geel';
-        $bike->bagagedrager = 1;
+        $bike->kleur = $request->input('kleur');
+        $bike->bagagedrager = request('bagagedrager');
         $bike->forSale = 1;
-
         $bike->save();
 
 
@@ -256,8 +263,8 @@ class gebruikerController extends Controller
         $bike->omschrijving = request('omschrijving');
         $bike->additionDate = now();
         $bike->versnellingen = request('versnellingen');
-        $bike->kleur = 'Geel';
-        $bike->bagagedrager = 1;
+        $bike->kleur =  request('kleur');
+        $bike->bagagedrager = request('bagagedrager');
         $bike->forSale = 1;
 
         $bike->save();
@@ -317,6 +324,14 @@ class gebruikerController extends Controller
         return $this->handleAllowed(redirect("admin/products/overview"));
 
     }
+
+    public function deletenewsletter($id)
+    {
+        $newsletter = NewsLetter::find($id);
+        $newsletter->delete();
+        return $this->handleAllowed(redirect("admin/newsletters/overview"));
+
+    }
     public function deleteuser($id)
     {
         $user = User::find($id);
@@ -360,4 +375,5 @@ class gebruikerController extends Controller
     {
         //
     }
+
 }

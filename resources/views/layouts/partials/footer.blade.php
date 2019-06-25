@@ -7,16 +7,20 @@
                         <h5>Menu</h5>
                     </li>
                     <li>
-                        <a class="text-white" href="/">Home</a>
+                        <a class="text-white" href="">Home</a>
+
                     </li>
                     <li>
-                        <a class="text-white" href="/products">Producten</a>
+                        <a class="text-white" href="{{url("products")}}">Fietsen</a>
                     </li>
                     <li>
-                        <a class="text-white" href="/contact">Contact</a>
+                        <a class="text-white" href="{{url("about-us")}}">Over ons</a>
                     </li>
                     <li>
-                        <a class="text-white" href="/login">Inloggen</a>
+                        <a class="text-white" href="{{url("contact")}}">Contact</a>
+                    </li>
+                    <li>
+                        <a class="text-white" href="{{url("login")}}">Inloggen</a>
                     </li>
                 </ul>
             </div>
