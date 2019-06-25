@@ -7,16 +7,16 @@
                         <h5>Menu</h5>
                     </li>
                     <li>
-                        Home
+                        <a class="text-white" href="/">Home</a>
                     </li>
                     <li>
-                        Producten
+                        <a class="text-white" href="/products">Producten</a>
                     </li>
                     <li>
-                        Contact
+                        <a class="text-white" href="/contact">Contact</a>
                     </li>
                     <li>
-                        Inloggen
+                        <a class="text-white" href="/login">Inloggen</a>
                     </li>
                 </ul>
             </div>

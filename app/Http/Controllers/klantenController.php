@@ -110,7 +110,7 @@ class klantenController extends Controller
 
         Auth::user()->save();
 
-        return redirect("/");
+        return redirect("/profile");
     }
 
     /**
