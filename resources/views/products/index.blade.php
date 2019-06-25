@@ -106,6 +106,7 @@
                                         </span>
                                     </div>
                                     <ul class="products--list">
+                                        <li><b>{{$bike->merk}}</b></li>
                                         <li>Versnellingen: {{$bike->versnellingen}}</li>
                                         @foreach($categories as $type)
                                             @if($bike->typeId == $type->id )

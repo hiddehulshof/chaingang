@@ -67,6 +67,13 @@
             <td colspan="2" class="hidden-xs"></td>
             <td class="hidden-xs text-center"><strong>Totaal &euro;{{ $total }}</strong></td>
             <td><a href="cart/betaal" class="button"> Betaal</a></td>
+            @if (Session::has('success'))
+                <div class="alert alert-success">
+                    <ul>
+                        <li class="list-inline-item text-succes"><b>{!! \Session::get('success') !!}</b></li>
+                    </ul>
+                </div>
+            @endif
 
         </tr>
         </tfoot>

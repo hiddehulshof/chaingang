@@ -48,12 +48,23 @@
                     </div>
                     <div class="col-12 form-group">
                         <select class="form-control" name="type">
-
+                            <label class="contact__label" for="InputLastname">Type</label>
                             @foreach($categories as $category)
 
                                     <option value="{{$category->id}}">{{ $category->Naam }}</option>
 
                             @endforeach
+                        </select>
+                    </div>
+                    <div class="col-12 form-group">
+                        <label class="contact__label" for="InputLastname">Bagagedrager</label>
+
+                        <select class="form-control" name="bagagedrager">
+
+                            <option value="1">Ja</option>
+                            <option value="0">Nee</option>
+
+
                         </select>
                     </div>
 
