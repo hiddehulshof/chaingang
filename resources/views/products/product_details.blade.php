@@ -63,10 +63,10 @@
                         <tr>
                             <td><a class="font-weight-bold"><h3>
                                         @if ($bike->aanbiedingsprijs == 0.00)
-                                        {{$bike->prijs}}
+                                         {{$bike->prijs}}
                                             @else
-                                            <span style="text-decoration: line-through red">{{$bike->prijs}}</span>
-                                            {{$bike->aanbiedingsprijs}}
+                                            <span style="text-decoration: line-through red">&euro;{{$bike->prijs}}</span>
+                                            &euro;{{$bike->aanbiedingsprijs}}
                                             @endif
                                     </h3></a></td>
                         </tr>

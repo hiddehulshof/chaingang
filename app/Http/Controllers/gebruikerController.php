@@ -286,8 +286,6 @@ class gebruikerController extends Controller
         $user->Huisnr = $request->input('housenumber');
         $user->Plaats = $request->input('city');
         $user->TelefoonNR = $request->input('telephone');
-        $user->isEmployee = 1;
-        $user->isAdmin = 0;
 
         $user->save();
         return redirect("admin/users/overview");
