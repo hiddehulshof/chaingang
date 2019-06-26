@@ -46,7 +46,10 @@ class reviewsController extends Controller
 
         $review->save();
 
-        return view('reviews');
+        $reviews = Review::all()->paginate(12);
+        $users = User::all();
+
+        return view('reviews', compact("reviews", "users"));
     }
 
     /**
