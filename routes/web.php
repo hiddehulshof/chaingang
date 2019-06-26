@@ -23,6 +23,10 @@ Route::get('/contact', function () {
     return view('contact');
 });
 
+Route::post('/contact', function() {
+    return view('contact', ['message' => true]);
+});
+
 Route::get('/login', function () {
     return view('login-page');
 });

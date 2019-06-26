@@ -3,6 +3,7 @@
         <h2>Contact</h2>
         <hr>
         <form method="post" class="w-100">
+            {{csrf_field()}}
             <div class="row">
                 <div class="col-md-6 form-group">
                     <label class="contact__label" for="InputFirstname">Voornaam *</label>
@@ -50,6 +51,13 @@
                 <div class="col-md-12">
                     <button type="submit" class="btn btn-primary">Verstuur</button>
                 </div>
+                @if (isset($message))
+                    <div class="alert alert-success">
+                        <ul>
+                            <li class="list-inline-item text-succes"><b>Het bericht is verzonden.</b></li>
+                        </ul>
+                    </div>
+                @endif
             </div>
         </form>
     </div>
