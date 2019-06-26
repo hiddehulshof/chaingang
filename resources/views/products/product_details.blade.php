@@ -4,7 +4,9 @@
 
 @endsection
 @section('content')
+
     <div class="article">
+
         <div class="container">
             <h1 class="article__heading py-4">{{$bike->naam}}</h1>
 
@@ -23,20 +25,16 @@
                                 @if($img->FietsID == $bike->id)
                                 @if($first == 1)
                                 <div class="carousel-item active">
-                                    {{--<div class="d-block w-100 product-image">--}}
                                         <div class="product-detail-image" style="background-image: url('{{url("images/$img->Filename")}}');"></div>
 
-                                        {{--<img class="img-fluid" src="{{url("images/$img->Filename")}}">--}}
-                                    {{--</div>--}}
+
                                     @php($first = 0)
                                 </div>
                                 @else
                                         <div class="carousel-item ">
-                                            {{--<div class="d-block w-100 product-image">--}}
                                             <div class="product-detail-image" style="background-image: url('{{url("images/$img->Filename")}}');"></div>
 
-                                            {{--<img class="img-fluid" src="{{url("images/$img->Filename")}}">--}}
-                                            {{--</div>--}}
+
 
                                         </div>
 
@@ -73,10 +71,18 @@
                                     </h3></a></td>
                         </tr>
                     </table>
-
+                    @if (Session::has('success'))
+                        <div class="alert alert-success">
+                            <ul>
+                                <li class="list-inline-item text-succes"><b>{!! \Session::get('success') !!}</b></li>
+                            </ul>
+                        </div>
+                    @endif
 
                     <a href="{{ url('add-to-cart/'.$bike->id) }}" class="button">Bestel</a>
+
                 </div>
+
                 <div class="col-12 py-5">
                     <h3 class="article__heading py-3">Specificaties</h3>
                     <table class="table">

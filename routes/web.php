@@ -42,12 +42,12 @@ Route::get('/register', function () {
     return view('register');
 });
 
-Route::get('/reviews', function() {
-    return view('reviews');
-});
-
 Route::get('/review-form', 'reviewsController@create')->middleware('auth');
 Route::post('/review-form', 'reviewsController@store');
+
+Route::post('/profile', 'klantenController@update');
+Route::get('/reviews', 'reviewsController@index');
+
 
 Route::get('/profile', 'klantenController@show')->middleware('auth');
 Route::post('/profile', 'klantenController@update')->middleware('auth');
@@ -63,7 +63,6 @@ Route::get('cart', 'fietsenController@cart');
 Route::get('cart/betaal', 'fietsenController@placeorder')->middleware('auth');
 
 
-
 Route::patch('update-cart', 'fietsenController@update');
 
 Route::delete('remove-from-cart', 'fietsenController@remove');
@@ -73,6 +72,9 @@ Route::get('admin/products/overview', 'gebruikerController@products')->middlewar
 Route::get('admin/users/overview', 'gebruikerController@users')->middleware('authenticated');
 
 Route::get('admin/orders/overview', 'gebruikerController@orders')->middleware('authenticated');
+
+Route::get('admin/newsletters/overview', 'gebruikerController@newsletters')->middleware('authenticated');
+
 
 Route::get('admin/reviews/overview', 'gebruikerController@reviews')->middleware('authenticated');
 
@@ -90,6 +92,7 @@ Route::get('admin/users/{id}', 'gebruikerController@edituser')->middleware('auth
 
 Route::get('admin/users/delete/{id}', 'gebruikerController@deleteuser')->middleware('authenticated');
 Route::get('admin/products/delete/{id}', 'gebruikerController@deleteproduct')->middleware('authenticated');
+Route::get('admin/newsletters/delete/{id}', 'gebruikerController@deletenewsletter')->middleware('authenticated');
 
 Route::get('add-to-cart/{id}', 'fietsenController@addToCart');
 

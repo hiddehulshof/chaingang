@@ -13,7 +13,7 @@
         </div>
 
         <div class="reviews__action">
-            <a href="reviews" class="btn">Schrijf hier je eigen review</a>
+            <a href="reviews" class="btn">Bekijk alle reviews</a>
         </div>
 
     </div>
