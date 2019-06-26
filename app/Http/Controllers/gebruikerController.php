@@ -268,6 +268,21 @@ class gebruikerController extends Controller
         $bike->forSale = 1;
 
         $bike->save();
+        if($request->hasfile('filename'))
+        {
+
+
+            foreach($request->file('filename') as $image)
+            {
+                $name=$bike->id."_".$image->getClientOriginalName();
+                $image->move(public_path().'/images/', $name );
+                $picture = new BikePicture();
+                $picture->Filename = $name;
+                $picture->FietsID = $bike->id;
+                $picture->save();
+
+            }
+        }
 
         return $this->handleAllowed(redirect("admin/products/overview"));
 
