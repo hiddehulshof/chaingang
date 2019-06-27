@@ -226,8 +226,9 @@ class gebruikerController extends Controller
         $bike = Bike::find($id);
         $categorySelected = BikeCatagory::find($bike->typeId);
         $categories = BikeCatagory::all();
+        $images = BikePicture::all();
 
-        return $this->handleAllowed(view("admin.products.edit", compact('bike','categories', 'categorySelected' )));
+        return $this->handleAllowed(view("admin.products.edit", compact('bike','categories', 'categorySelected', 'images' )));
 
     }
     public function editreview($id)
@@ -270,7 +271,6 @@ class gebruikerController extends Controller
         $bike->save();
         if($request->hasfile('filename'))
         {
-
 
             foreach($request->file('filename') as $image)
             {
@@ -321,12 +321,19 @@ class gebruikerController extends Controller
         $bike ->delete();
         foreach ($images as $image)
         {
-            //dd(public_path()."/images/".$image->Filename);
-            //$image->delete();
             File::delete(public_path()."/images/".$image->Filename);
         }
 
         return $this->handleAllowed(redirect("admin/products/overview"));
+    }
+    public function deletepicture($id)
+    {
+        $image = BikePicture::find($id);
+        File::delete(public_path()."/images/".$image->Filename);
+        $image->delete();
+
+        return redirect()->back();
+
     }
     public function deleteorder($id)
     {

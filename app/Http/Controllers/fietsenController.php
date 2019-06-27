@@ -128,7 +128,6 @@ class fietsenController extends Controller
         $pictures = BikePicture::all();
 
 
-//            dd($pictures);
 
         $categories = BikeCatagory::all();
         if ($bike === null){

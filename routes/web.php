@@ -107,6 +107,9 @@ Route::post('admin/users/edit/{id}', 'gebruikerController@editexistinguser')->mi
 
 Route::post('admin/users/create', 'gebruikerController@storeuser')->middleware('authenticated');
 
+
+Route::get('admin/products/delete/picture/{id}', 'gebruikerController@deletepicture')->middleware('authenticated');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

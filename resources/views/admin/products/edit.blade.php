@@ -92,8 +92,17 @@
 
                     </div>
                 </div>
-
             </form>
+            @foreach($images as $image)
+                @if($bike->id == $image->FietsID)
+                    <div class="d-flex flex-column w-25">
+                        <img class="img-thumbnail" src="{{url("images/$image->Filename")}}">
+                        <a href="delete/picture/{{$image->id}}">
+                            <button type="button" class="btn btn-danger">Delete</button>
+                        </a>
+                    </div>
+                @endif
+            @endforeach
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -105,15 +114,4 @@
             @endif
         </div>
     </div>
-
-
-
-
-
-
-
-
-
-
-
 @endsection
